@@ -953,8 +953,11 @@ table caption{
     margin:20px 0 0 33px;
 
 }
-.erp > p{
-    margin: 30px 0 0 30px;
+.edu_board p.url_box{
+    margin: 0;
+}
+.edu_board .edu_board_write ul li input.input-file{
+    background: #fff;
 }
 .erp .erp_download{
     display: inline-block;
@@ -980,7 +983,7 @@ table caption{
     line-height: 50px;
     letter-spacing: -0.02em;
 }
-.edu_board_table *{
+.edu_board_table td,.edu_board_table th{
     border: 1px solid #ccc;
     border-left: 0;
     border-right: 0;
@@ -1000,15 +1003,21 @@ table caption{
     text-align: left;
     padding-left: 35px;
     color:#666;
+    
+}
+.edu_board_table tr .txt_left a{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: nowrap;
+    display: block;
+    width: 440px;
 }
 .edu_board_list{
     position: relative;
 }
 .edu_board_list .pagination{
     margin-top: 54px;
-}
-.edu_board_view{
-    margin:100px 0;
 }
 .edu_board_view li:first-child{
     border-top: 1.2px solid #333;

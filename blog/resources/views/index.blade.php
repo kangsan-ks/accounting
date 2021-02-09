@@ -39,21 +39,21 @@
                         <p>회원회계법인 설명 텍스트</p>    
                     </div>                   
                 </a></li>
-                <li class="flex_box_cen"><a href="/info/report/report01" class="flex_box_cen">
+                <li class="flex_box_cen"><a href="/info/report/report01/list" class="flex_box_cen">
                     <img src="/img/main_pic02.png" alt="총회보고">
                     <div class="main_content_text">
                         <h4>총회보고</h4>
                         <p>총회보고 설명 텍스트</p>   
                     </div>  
                 </a></li>
-                <li class="flex_box_cen"><a href="/support/q_support/sp01" class="flex_box_cen">
+                <li class="flex_box_cen"><a href="/support/q_support/sp01/list" class="flex_box_cen">
                     <img src="/img/main_pic03.png" alt="품질관리지원">
                     <div class="main_content_text">
                         <h4>품질관리지원</h4>
                         <p>품질관리지원 설명 텍스트</p>   
                     </div>
                 </a></li>
-                <li class="flex_box_cen"><a href="/support/q_edu/ed01" class="flex_box_cen">
+                <li class="flex_box_cen"><a href="/support/q_edu/ed01/list" class="flex_box_cen">
                     <img src="/img/main_pic04.png" alt="품질관리교육">
                     <div class="main_content_text">
                         <h4>품질관리교육</h4>
@@ -67,7 +67,7 @@
                 <div class="main_item item1">
                     <h3>협의회 교육 안내</h3>
                     <p>협의회 교육 안내 설명 텍스트입니다.</p>
-                    <a href="/edu/regular">더보기 +</a>
+                    <a href="/edu/regular/list">더보기 +</a>
                 </div>
                 <div class="main_item item2">
                     <h3>공동사업 소개</h3>
@@ -77,14 +77,14 @@
                 <div class="main_item item3">
                     <h3>제도개선</h3>
                     <p>제도개선 설명 텍스트입니다.</p>
-                    <a href="/system/audit_system">더보기 +</a>
+                    <a href="/system/audit_system/list">더보기 +</a>
                 </div>    
             </div>
             <div class="board inner flex_box_bet f_v_center">
                 <div class="main_item">
                     <div class="board_title flex_box_bet f_v_center">
                         <h3>커뮤니티 게시판</h3>
-                        <p><a href="/commu/c_board/board01">+</a></p>
+                        <p><a href="/commu/c_board/board01/list">+</a></p>
                     </div>        
                     <ul class="board_content">
                         <li class="flex_box_bet f_v_center">
@@ -108,7 +108,7 @@
                 <div class="main_item">
                     <div class="board_title flex_box_bet f_v_center">
                         <h3>자료실</h3>
-                        <p><a href="/commu/c_data_room/room01">+</a></p>
+                        <p><a href="/commu/c_data_room/room01/list">+</a></p>
                     </div>
                     <ul class="board_content">
                         <li class="flex_box_bet f_v_center">

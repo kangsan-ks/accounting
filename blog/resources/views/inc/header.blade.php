@@ -19,10 +19,10 @@
             <ul class="main_menu_list inner flex_box_left f_v_center">
                 <li><a href="/info/greeting">협의회소개</a></li>
                 <li><a href="/business/insurance">공동사업</a></li>
-                <li><a href="/system/audit_system">제도개선</a></li>
-                <li><a href="/commu/c_board/board01">커뮤니티</a></li>
+                <li><a href="/system/audit_system/list">제도개선</a></li>
+                <li><a href="/commu/c_board/board01/list">커뮤니티</a></li>
                 <li><a href="/support/b_infro">회계투명성지원센터</a></li>
-                <li><a href="/edu/regular">교육</a></li>
+                <li><a href="/edu/regular/list">교육</a></li>
             </ul>
             {{-- 햄버거 --}}
         </div>

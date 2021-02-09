@@ -126,24 +126,28 @@ class Front extends Controller
 
         return view('sub/s_result', $return_list);
     }
-    public function board_list(Request $request){
+
+    /*게시판*/
+    public function list(Request $request){
         
         $return_list = array();
 
         return view('sub/board_list', $return_list);
     }
-    public function board_write(Request $request){
+    public function write(Request $request){
         
         $return_list = array();
 
         return view('sub/board_write', $return_list);
     }
-    public function board_view(Request $request){
+    public function view(Request $request){
         
         $return_list = array();
 
         return view('sub/board_view', $return_list);
     }
+
+
 
     /* 모바일 */
 
@@ -220,5 +224,44 @@ class Front extends Controller
 
         return view($view_url, $return_list);
     }
+    public function m_commu(Request $request){
+        
+        $view_url = '';
+        //$view_url .= '/sub/info/greeting';
+        $view_url .= '/m/sub/';
+        if($request->segment(3) != ''){
+        $view_url .= $request->segment(1).'/'.$request->segment(2).'/'.$request->segment(3);
+        }else{
+        $view_url .= $request->segment(1).'/'.$request->segment(2);
+        }
+        $return_list = array();
+
+        return view($view_url, $return_list);
+    }
+    public function m_edu(Request $request){
+        
+        $view_url = '';
+        //$view_url .= '/sub/info/greeting';
+        $view_url .= '/m/sub/';
+        if($request->segment(3) != ''){
+        $view_url .= $request->segment(1).'/'.$request->segment(2).'/'.$request->segment(3);
+        }else{
+        $view_url .= $request->segment(1).'/'.$request->segment(2);
+        }
+        $return_list = array();
+        return view($view_url, $return_list);
+    }
+    public function m_system(Request $request){
+        
+        $view_url = '';
+        //$view_url .= '/sub/info/greeting';
+        $view_url .= '/m/sub/';
+        $view_url .= $request->segment(1).'/'.$request->segment(2);
+
+        $return_list = array();
+
+        return view($view_url, $return_list);
+    }
+
 } 
 ?>

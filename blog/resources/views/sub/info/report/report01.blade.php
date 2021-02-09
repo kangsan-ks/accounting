@@ -5,8 +5,6 @@
             <div class="sub_content edu_board report01">
                
                 @include('/sub/board_list')
-                @include('/sub/board_view')
-                @include('/sub/board_write')
             </div>
         </div>
     </div> 

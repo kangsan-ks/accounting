@@ -15,6 +15,12 @@
         전문인세무보험
         @elseif(request()->segment(3) == 'report01')
         사업보고
+        @elseif(request()->segment(3) == 'report02')
+        결산보고
+        @elseif(request()->segment(3) == 'report03')
+        사업계획
+        @elseif(request()->segment(3) == 'report04')
+        예산
         @elseif(request()->segment(3) == 'sp04')
         자문보고
         @elseif(request()->segment(3) == 'sp02')
