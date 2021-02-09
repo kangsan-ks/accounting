@@ -3,6 +3,10 @@ $(function(){
 		// Optional parameters
 		direction: 'horizontal',
 		loop: true,
+		autoplay : {
+            delay:3000,
+        },
+        speed : 1000,
 	  
 		// If we need pagination
 		pagination: {
@@ -10,6 +14,29 @@ $(function(){
 		  clickable:true
 		}
 	});
+	/* gotop */
+	if($('.goTop').length){
+        var goTop = $('.goTop');
+
+        $(window).scroll(function(){
+            var goTopSCT = $(this).scrollTop();
+            
+            if(goTopSCT>500){
+                goTop.addClass('active');
+            }else{
+                goTop.removeClass('active');
+            }
+        });
+
+        goTop.click(function(e){
+            e.preventDefault();
+            $('html,body').animate({scrollTop:0},500);
+        });
+	}   
+	$('.b_insur_title').click(function(){
+		$(this).parent().toggleClass('on');
+	});
+
 
 	/* PC 서브 popup */
 

@@ -11,7 +11,7 @@
                     <p>개인정보책임자 : 홍길동 (abc@abc.com)</p>
                     <p>TEL 1234-5678</p>
                     <p>COPYRIGHT (C) 중소회계법인협의회, ALL RIGHTS RESERVED.</p>
-                    {{-- <a href="" class="goTop flex_box_cen"><img src="/img/main_gotop.png" alt="top_button"></a> --}}
+                    <a href="" class="goTop flex_box_cen"><img src="/img/main_gotop.png" alt="top_button"></a>
                 </div>                
             </div>
         </div>

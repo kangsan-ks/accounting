@@ -26,7 +26,7 @@
         <div class="login_another">
             <ul class="flex_box_bet">
                 <li><a href="">아이디&middot;비밀번호찾기</a></li>
-                <li><a href="/join/join">회원가입</a></li>
+                <li><a href="/m_join/join">회원가입</a></li>
             </ul>
         </div>
     </div>

@@ -5,6 +5,8 @@
             협의회소개
             @elseif(request()->segment(1) == 'm_business')
             공동사업
+            @elseif(request()->segment(1) == 'board_write')
+            공동사업
             @elseif(request()->segment(1) == 'm_system')
             제도개선
             @elseif(request()->segment(1) == 'm_commu')
@@ -59,8 +61,10 @@
                 품질관리교육
                 @elseif(request()->segment(2) == 'm_q_support')
                 품질관리지원
-                @else
+                @elseif(request()->segment(2) == 'edu')
                 교육
+                @else
+                
                 @endif
             </h4>
             <img src="/img/m_down_btn.png" alt="">

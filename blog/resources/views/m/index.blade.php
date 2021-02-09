@@ -29,21 +29,21 @@
     </div>
     <div class="main_content">
         <ul class="main_content_list flex_box_bet f_v_center">
-            <li class="flex_box_cen flex_box_bottom"><a href=""> 
+            <li class="flex_box_cen flex_box_bottom"><a href="/m_info/m_account"> 
                 <img src="/img/m_main_pic01.png" alt="회원회계법인">
                 <div class="main_content_text">
                     <h4>회원회계법인</h4>
                     <p>회원회계법인 설명 텍스트</p>    
                 </div>                   
             </a></li>
-            <li class="flex_box_cen flex_box_bottom"><a href="">
+            <li class="flex_box_cen flex_box_bottom"><a href="/m_info/m_report/m_report01">
                 <img src="/img/m_main_pic02.png" alt="총회보고">
                 <div class="main_content_text">
                     <h4>총회보고</h4>
                     <p>총회보고 설명 텍스트</p>   
                 </div>  
             </a></li>
-            <li class="flex_box_cen flex_box_bottom"><a href="">
+            <li class="flex_box_cen flex_box_bottom"><a href="/m_support/m_q_support/m_sp01">
                 <div class="ico">
                     <img src="/img/m_main_pic03.png" alt="품질관리지원">
                 </div>                
@@ -52,7 +52,7 @@
                     <p>품질관리지원 설명 텍스트</p>   
                 </div>
             </a></li>
-            <li class="flex_box_cen flex_box_bottom"><a href="">
+            <li class="flex_box_cen flex_box_bottom"><a href="/m_support/m_q_edu/m_ed01">
                 <img src="/img/m_main_pic04.png" alt="품질관리교육">
                 <div class="main_content_text">
                     <h4>품질관리교육</h4>
@@ -71,12 +71,12 @@
             <div class="main_item item2">
                 <h3>공동사업 소개</h3>
                 <p>공동사업 소개<br> 설명 텍스트입니다.</p>
-                <a href="">더보기 +</a>
+                <a href="/m_business/m_insurance">더보기 +</a>
             </div>
             <div class="main_item item3">
                 <h3>제도개선</h3>
                 <p>제도개선<br> 설명 텍스트입니다.</p>
-                <a href="">더보기 +</a>
+                <a href="/m_business/m_insurance">더보기 +</a>
             </div>    
         </div>
     </div>
@@ -88,20 +88,20 @@
             </div>        
             <ul class="board_content">
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p>
+                    <p><a href="">2020.01.01</a></p>
                 </li>
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p>
+                    <p><a href="">2020.01.01</a></p>
                 </li>
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p> 
+                    <p><a href="">2020.01.01</a></p>
                 </li>
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p> 
+                    <p><a href="">2020.01.01</a></p>
                 </li>
             </ul>
         </div>
@@ -112,23 +112,23 @@
             </div>
             <ul class="board_content">
                 <li class="flex_box_bet f_v_center">
-                    <p>
+                    <p><a href="">
                         중소회계법인협의회 오픈 자료 다운받기
                         <img src="/img/main_down.png" alt="다운로드받기">
-                    </p> 
-                    <p>2020.01.01</p>
+                    </a></p>
+                    <p><a href="">2020.01.01</a></p>
                 </li>
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p>
+                    <p><a href="">2020.01.01</a></p>
                 </li>
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p>
+                    <p><a href="">2020.01.01</a></p>
                 </li>
                 <li class="flex_box_bet f_v_center">
-                    <p>안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</p> 
-                    <p>2020.01.01</p>
+                    <p><a href="">안녕하세요! 중소회계법인협의회 게시판을 오픈합니다.</a></p>
+                    <p><a href="">2020.01.01</a></p>
                 </li>
             </ul>
         </div>

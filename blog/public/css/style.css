@@ -298,7 +298,7 @@ table caption{
     font-weight: 300;
 }
 
-#sub .sub_title.info,#sub .sub_title.login,#sub .sub_title.join{
+#sub .sub_title.info,#sub .sub_title.login,#sub .sub_title.join,#sub .sub_title.board_write{
     background: url(/img/sub_visual_01.jpg) no-repeat;
 }
 #sub .sub_title.business{
@@ -833,6 +833,16 @@ table caption{
 .submit_box{
     margin-top: 52px;
 }
+.submit_box input{
+    cursor: pointer;
+}
+.e_list.submit_box{
+    position: absolute;
+    display: inline-block;
+    margin-top: 0;
+    right: 0;
+}
+
 .join form .submit_box input,.edu_board .edu_board_write .submit_box input{
     margin:0 7px;
     line-height: 46px;
@@ -991,6 +1001,9 @@ table caption{
     padding-left: 35px;
     color:#666;
 }
+.edu_board_list{
+    position: relative;
+}
 .edu_board_list .pagination{
     margin-top: 54px;
 }
@@ -1068,6 +1081,10 @@ table caption{
     margin-bottom: 17px;
     line-height: 58px;
     padding: 0 40px;
+    height: 58px;
+    overflow: hidden;
+    transition: height 0.3s ease-in;
+    cursor: pointer;
 }
 .b_insurance li h5{
     font-size: 18px;
@@ -1081,6 +1098,7 @@ table caption{
 
 .b_insurance li.on{
     background: #3d6cb4;
+    height: 230px;
 }
 .b_insurance li.on h5{
     color:#fff;
@@ -1344,7 +1362,7 @@ table caption{
 .account_table tbody tr td svg{
     color: #999;
 }
-.account_table tbody tr td a{
+.account_table tbody tr td .account_btn{
     width: 65px;
     text-align: center;
     line-height: 31px;
@@ -1353,7 +1371,7 @@ table caption{
     display: inline-block;
     border-radius: 5px;
 }
-.account_table tbody tr td a.on{
+.account_table tbody tr td .account_btn.on{
     background: #537db9;
     color: #fff;
 }

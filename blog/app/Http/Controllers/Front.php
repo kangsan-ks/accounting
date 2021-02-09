@@ -126,6 +126,24 @@ class Front extends Controller
 
         return view('sub/s_result', $return_list);
     }
+    public function board_list(Request $request){
+        
+        $return_list = array();
+
+        return view('sub/board_list', $return_list);
+    }
+    public function board_write(Request $request){
+        
+        $return_list = array();
+
+        return view('sub/board_write', $return_list);
+    }
+    public function board_view(Request $request){
+        
+        $return_list = array();
+
+        return view('sub/board_view', $return_list);
+    }
 
     /* 모바일 */
 

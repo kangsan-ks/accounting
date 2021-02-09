@@ -44,11 +44,11 @@ Route::get('/commu/c_data_room/room03', 'Front@commu');
 Route::get('/commu/c_data_room/room04', 'Front@commu');
 
 Route::get('/support/b_infro', 'Front@support');
-Route::get('/support/q_support/sp01', 'Front@support');
+// Route::get('/support/q_support/sp01', 'Front@support');
 Route::get('/support/q_support/sp02', 'Front@support');
 Route::get('/support/q_support/sp03', 'Front@support');
 Route::get('/support/q_support/sp04', 'Front@support');
-Route::get('/support/q_edu/ed01', 'Front@support');
+// Route::get('/support/q_edu/ed01', 'Front@support');
 Route::get('/support/q_edu/ed02', 'Front@support');
 Route::get('/support/q_edu/ed03', 'Front@support');
 Route::get('/support/q_edu/ed04', 'Front@support');
@@ -66,6 +66,12 @@ Route::get('/join/business_join', 'Front@join');
 Route::get('/join/human_join', 'Front@join');
 
 Route::get('/s_result', 'Front@s_result');
+
+Route::get('/board_list', 'Front@board_list');
+Route::get('/board_write', 'Front@board_write');
+Route::get('/board_view', 'Front@board_view');
+
+// 모바일
 
 Route::get('/m/index', 'Front@m');
 

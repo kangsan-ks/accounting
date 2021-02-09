@@ -101,7 +101,7 @@
                 <li class="@if(request()->segment(2) == 'q_support') on @endif ">
                     <a href="#" class="dep1_btn">품질관리지원<img src="/img/down_btn.png" alt="down_btn"></a>                   
                     <ul class="sub_sub_menu">
-                        <li class=" @if(request()->segment(3) == 'sp01') active @endif "><a href="/support/q_support/sp01">품질관리실자문</a></li>
+                        {{-- <li class=" @if(request()->segment(3) == 'sp01') active @endif "><a href="/support/q_support/sp01">품질관리실자문</a></li> --}}
                         <li class=" @if(request()->segment(3) == 'sp02') active @endif "><a href="/support/q_support/sp02">자문신청</a></li>
                         <li class=" @if(request()->segment(3) == 'sp03') active @endif "><a href="/support/q_support/sp03">자문내용게시판</a></li>
                         <li class=" @if(request()->segment(3) == 'sp04') active @endif "><a href="/support/q_support/sp04">자문보고</a></li>
@@ -110,7 +110,7 @@
                 <li class="@if(request()->segment(2) == 'q_edu') on @endif ">
                     <a href="#" class="dep1_btn">품질관리교육<img src="/img/down_btn.png" alt="down_btn"></a>                    
                     <ul class="sub_sub_menu">
-                        <li class=" @if(request()->segment(3) == 'ed01') active @endif "><a href="/support/q_edu/ed01">품질관리ERP지원</a></li>
+                        {{-- <li class=" @if(request()->segment(3) == 'ed01') active @endif "><a href="/support/q_edu/ed01">품질관리ERP지원</a></li> --}}
                         <li class=" @if(request()->segment(3) == 'ed02') active @endif "><a href="/support/q_edu/ed02">품질관리ERP지원신청</a></li>
                         <li class=" @if(request()->segment(3) == 'ed03') active @endif "><a href="/support/q_edu/ed03">품질관리ERP도입신청</a></li>
                         <li class=" @if(request()->segment(3) == 'ed04') active @endif "><a href="/support/q_edu/ed04">품질관리ERP교육신청</a></li>

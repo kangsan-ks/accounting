@@ -33,10 +33,10 @@
                         <td>5명</td>
                         <td>유/무</td>
                         <td>
-                            <a href="">납부</a>
+                            <a href="" class="account_btn">납부</a>
                         </td>
                         <td>
-                            <i class="fas fa-home"></i>abc.co.kr
+                            <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
                         </td>
                     </tr>
                     <tr>
@@ -46,10 +46,10 @@
                         <td>5명</td>
                         <td>유/무</td>
                         <td>
-                            <a href="">납부</a>
+                            <a href="" class="account_btn">납부</a>
                         </td>
                         <td>
-                            <i class="fas fa-home"></i>abc.co.kr
+                            <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
                         </td>
                     </tr>
                     <tr>
@@ -59,10 +59,10 @@
                         <td>5명</td>
                         <td>유/무</td>
                         <td>
-                            <a href="">납부</a>
+                            <a href="" class="account_btn">납부</a>
                         </td>
                         <td>
-                            <i class="fas fa-home"></i>abc.co.kr
+                            <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
                         </td>
                     </tr>
                     <tr>
@@ -73,11 +73,11 @@
                         <td>유/무</td>
                         <td>
                             <div>
-                                <a href="/m_info/m_fee" class="on">납부</a>
+                                <a href="/m_info/m_fee" class="account_btn on">납부</a>
                             </div>                                
                         </td>
                         <td>
-                            <i class="fas fa-home"></i>abc.co.kr
+                            <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
                         </td>
                     </tr>
                 </tbody>

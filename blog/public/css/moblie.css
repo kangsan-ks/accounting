@@ -112,6 +112,20 @@ input{
 #footer .inner{
     position: relative;
 }
+.goTop{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+    height: 45px;
+    opacity: 0;
+	visibility: hidden;
+	transition: 0.4s;
+}
+.goTop.active{
+    opacity: 1;
+	visibility: visible;
+}
 
 /* responmenu */
 
@@ -444,7 +458,7 @@ input{
 .account_table tbody tr td svg{
     color: #999;
 }
-.account_table tbody tr td a{
+.account_table tbody tr td .account_btn{
     width: 47px;
     text-align: center;
     line-height: 26px;
@@ -453,7 +467,7 @@ input{
     display: inline-block;
     border-radius: 5px;
 }
-.account_table tbody tr td a.on{
+.account_table tbody tr td .account_btn.on{
     background: #537db9;
     color: #fff;
 }
