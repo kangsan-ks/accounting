@@ -118,7 +118,7 @@ $(function(){
 			$(this).toggleClass('on');
 		});
 
-		$('.header_box .icon').click(function(){
+		$('.header_box .search_icon').click(function(){
 			$('.header_box .search_form').toggleClass('on');
 		});
 

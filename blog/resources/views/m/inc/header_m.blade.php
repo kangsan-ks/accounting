@@ -7,7 +7,7 @@
                
                 <img src="/img/m_sub_menu_icon.png" class="icon main_menu" alt=""> 
                 <h1 class="logo"><a href="/m/index"><img src="/img/m_logo.png" alt=""></a></h1>
-                <img src="/img/m_main_search.png" class="icon" alt="">          
+                <img src="/img/m_main_search.png" class="icon search_icon" alt="">          
             </div>
             <form action="" method="GET" class="search_form">
                 <label for="search">검색창</label>
