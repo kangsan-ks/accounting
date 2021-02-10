@@ -73,13 +73,56 @@ input{
 }
 .header_box .header_top .icon{
     width: 20px;
+    cursor: pointer;
 }
 .main_menu{
-    font-size: 1.6rem;
+    font-size: 1.6rem;    
 }
-.header_box .header_top form{
+.header_box .search_form{
+    background: #ddd;
+    width: 100%;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -120px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    transition: top 0.4s ease-in;
+}
+.header_box .search_form.on{
+    top: 59px;
+}
+.header_box .search_form label{
     display: none;
 }
+.header_box .search_form .search{
+    width: 320px;
+    height: 37px;
+    background: #fff;
+    border:2px solid #4270B3;
+    border-radius: 180px;
+    padding:0 20px;
+    color:#888888;
+    font-size: 1.3rem;
+} 
+.header_box .search_form .search::placeholder{
+    color:#888888;
+    font-size: 1.3rem;
+}
+.header_box .search_form .search_btn{
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform:  translateY(-50%);
+    background: url(/img/m_main_search.png) no-repeat center/cover;
+    width: 17px;
+    height: 17px;
+    text-indent: -9999em;
+}
+
 .header_box .header_top .logo{width: 183px;}
 
 /* m_footer */
@@ -136,6 +179,7 @@ input{
     border-top: 1px solid #ddd;
     z-index: 999;
     display: none;
+    overflow-y: auto;
 }
 .re_main_menu.active{
     display: block;
@@ -157,7 +201,6 @@ input{
     text-align: center;    
     display: inline-block;
 }
-
 
 .re_main_menu_list > li.on .main_title  a{
     color: #4270B3;
@@ -185,7 +228,8 @@ input{
 .re_main_menu_list .sub_sub_menu li a{
     padding-left: 10px;
     font-size: 1.6rem;
-    
+    width: 100%;
+    display: inline-block;
     color:#aaa;
     font-weight: 400;
 }
@@ -365,15 +409,46 @@ input{
 #sub .sub_title{
     background:url(/img/m_sub_visual.png) no-repeat center/cover;
 }
-#sub .sub_menu{
+#sub .m_sub_menu{
     line-height: 55px;
     border-bottom:1px solid  #a0a0a0;
+    position: relative;
 }
-#sub .sub_menu h4{
+#sub .m_sub_menu ul{
+    display: none;
+}
+/* #sub .m_sub_menu.active ul{
+
+}    */
+#sub .m_sub_menu h4{
     font-size: 1.8rem;
+    width: 100%;  
 }
-#sub .sub_menu img{
+#sub .m_sub_menu h4 span{
+    padding-left: 15px;
+    border-bottom: 1px solid #a0a0a0;
+    line-height: 55px;
+    display: inline-block;
+    width: 100%;
+}
+#sub .m_sub_menu li{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+#sub .m_sub_menu ul li > a{
+    padding-left: 15px;
+    width: 100%;
+    display: inline-block;
+}
+#sub .m_sub_menu img{
     width: 16px;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    transition: 0.3s;
+}
+#sub .m_sub_menu.active img{
+    transform: rotate(180deg);
 }
 
 /* m_info- m_greeting */
@@ -755,6 +830,12 @@ input{
     font-weight: 500;
     margin-bottom: 11px;
 }
+.edu_board_list > ul li h4 a{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
 .edu_board_list > ul li .list_box p,.edu_board_view li span{
     font-size: 1.4rem;
     font-weight: 400;
@@ -805,7 +886,7 @@ input{
  /*  edu_board_view */
 
 .edu_board_view{
-    margin:100px 0;
+    margin-bottom: 30px;
 }
 .edu_board_view li:first-child{
     border-top: 1.2px solid #333;
@@ -862,6 +943,8 @@ input{
     font-size: 1.8rem;
     font-weight: 400;
 }
+.list_btn.prev_list{text-align: center; margin-top: 20px;}
+.list_btn.prev_list a{display: inline-block; font-size: 1.8rem; }
 
     /*  edu_board_write */
 
@@ -963,6 +1046,13 @@ input{
     margin-bottom: 17px;
     padding: 17px 20px;
 }
+.m_insurance li p{
+    display: none;
+}
+.m_insurance li.on p{
+    display: block;
+}
+
 .m_insurance li h5{
     font-size: 1.6rem;
     color:#666;
@@ -1004,6 +1094,7 @@ input{
 .m_buy .edu_board_write ul li input,.m_buy .edu_board_write ul li textarea{
     width: 100%; letter-spacing: -2px; background-color: #f5f5f5; padding-left: 15px; border:0; line-height: 40px; font-size:1.6rem; color:#888; font-family: sans-serif;
 }
+.m_buy .edu_board_write ul li input.input-file{font-size: 1.2rem;}
 .m_buy .edu_board_write ul li label span{
     color:#d8373f;
     font-weight: 700;
@@ -1439,4 +1530,102 @@ input{
     margin-top: 30px;
     font-size: 1.8rem;
     letter-spacing: -0.02em;
+}
+
+/* 검색결과 */
+.s_result .search_form{
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.s_result .search_form label{
+    display: none;
+}
+.s_result .search_form .search{
+    width: 320px;
+    height: 37px;
+    background: #fff;
+    border:2px solid #4270B3;
+    border-radius: 180px;
+    padding:0 20px;
+    color:#888888;
+    font-size: 1.3rem;
+} 
+.s_result .search_form .search::placeholder{
+    color:#888888;
+    font-size: 1.3rem;
+}
+.s_result .search_form .search_btn{
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform:  translateY(-50%);
+    background: url(/img/m_main_search.png) no-repeat center/cover;
+    width: 17px;
+    height: 17px;
+    text-indent: -9999em;
+}
+.s_result .re_text{
+    font-size: 1.6rem;
+    letter-spacing: -0.05em;
+    font-weight: 400;
+    text-align: center;
+}
+.s_result .re_text strong{
+    font-size: 2rem;
+    font-weight: 400;
+    color:#4270B3;
+}
+.s_result .result_box{
+    position: relative;
+    margin: 50px 0;
+}
+.s_result .result_box h3{
+    position: absolute;
+    left: 0;
+    top: -20px;
+    padding:0 15px;
+    background: #333333;
+    line-height: 32px;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: -3%;
+}
+.s_result .result_box h3 span{
+    color:#CCCCCC;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.s_result .result_box ul li{
+    background: #F5F5F5;
+    padding: 20px;
+    border-bottom: 1px solid #fff;
+}
+.s_result .result_box ul li:first-child{
+    border-top: 1px solid #CCCCCC;
+}
+.s_result .result_box ul li h2{
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: -1%;
+    color: #666;
+    margin:10px 0;
+}
+.s_result .result_box ul li h2 span{
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -2%;
+    color:#537DB9;
+}
+.s_result .result_box ul li p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+    color: #aaa;
 }

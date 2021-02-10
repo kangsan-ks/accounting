@@ -131,49 +131,43 @@ Route::get('/edu/edus/view', 'Front@view');
 
 
 
-
-
-
-
-
-
-Route::get('/info/report/report02', 'Front@info');
-Route::get('/info/report/report03', 'Front@info');
-Route::get('/info/report/report04', 'Front@info');
+// Route::get('/info/report/report02', 'Front@info');
+// Route::get('/info/report/report03', 'Front@info');
+// Route::get('/info/report/report04', 'Front@info');
 Route::get('/info/report/report05', 'Front@info');
 
 Route::get('/business/insurance', 'Front@business');
-Route::get('/business/pa', 'Front@business');
+// Route::get('/business/pa', 'Front@business');
 Route::get('/business/advice', 'Front@business');
-Route::get('/business/board', 'Front@business');
-Route::get('/business/data_room', 'Front@business');
+// Route::get('/business/board', 'Front@business');
+// Route::get('/business/data_room', 'Front@business');
 
-Route::get('/system/audit_system', 'Front@system');
-Route::get('/system/operation', 'Front@system');
+// Route::get('/system/audit_system', 'Front@system');
+// Route::get('/system/operation', 'Front@system');
 
-Route::get('/commu/c_board/board01', 'Front@commu');
-Route::get('/commu/c_board/board02', 'Front@commu');
-Route::get('/commu/c_board/board03', 'Front@commu');
-Route::get('/commu/c_data_room/room01', 'Front@commu');
-Route::get('/commu/c_data_room/room02', 'Front@commu');
-Route::get('/commu/c_data_room/room03', 'Front@commu');
-Route::get('/commu/c_data_room/room04', 'Front@commu');
+// Route::get('/commu/c_board/board01', 'Front@commu');
+// Route::get('/commu/c_board/board02', 'Front@commu');
+// Route::get('/commu/c_board/board03', 'Front@commu');
+// Route::get('/commu/c_data_room/room01', 'Front@commu');
+// Route::get('/commu/c_data_room/room02', 'Front@commu');
+// Route::get('/commu/c_data_room/room03', 'Front@commu');
+// Route::get('/commu/c_data_room/room04', 'Front@commu');
 
 Route::get('/support/b_infro', 'Front@support');
 // Route::get('/support/q_support/sp01', 'Front@support');
-Route::get('/support/q_support/sp02', 'Front@support');
-Route::get('/support/q_support/sp03', 'Front@support');
-Route::get('/support/q_support/sp04', 'Front@support');
+// Route::get('/support/q_support/sp02', 'Front@support');
+// Route::get('/support/q_support/sp03', 'Front@support');
+// Route::get('/support/q_support/sp04', 'Front@support');
 // Route::get('/support/q_edu/ed01', 'Front@support');
-Route::get('/support/q_edu/ed02', 'Front@support');
-Route::get('/support/q_edu/ed03', 'Front@support');
-Route::get('/support/q_edu/ed04', 'Front@support');
+// Route::get('/support/q_edu/ed02', 'Front@support');
+// Route::get('/support/q_edu/ed03', 'Front@support');
+// Route::get('/support/q_edu/ed04', 'Front@support');
 Route::get('/support/electron', 'Front@support');
-Route::get('/support/care_room', 'Front@support');
+// Route::get('/support/care_room', 'Front@support');
 
-Route::get('/edu/regular', 'Front@edu');
-Route::get('/edu/web', 'Front@edu');
-Route::get('/edu/edus', 'Front@edu');
+// Route::get('/edu/regular', 'Front@edu');
+// Route::get('/edu/web', 'Front@edu');
+// Route::get('/edu/edus', 'Front@edu');
 
 Route::get('/login', 'Front@login');
 
@@ -195,10 +189,10 @@ Route::get('/m_info/m_greeting', 'Front@m_info');
 Route::get('/m_info/m_chart', 'Front@m_info');
 Route::get('/m_info/m_account', 'Front@m_info');
 Route::get('/m_info/m_fee', 'Front@m_info');
-Route::get('/m_info/m_report/m_report01', 'Front@m_info');
+// Route::get('/m_info/m_report/m_report01', 'Front@m_info');
 Route::get('/m_info/m_report/m_report02', 'Front@m_info');
-Route::get('/m_info/m_report/m_report03', 'Front@m_info');
-Route::get('/m_info/m_report/m_report04', 'Front@m_info');
+// Route::get('/m_info/m_report/m_report03', 'Front@m_info');
+// Route::get('/m_info/m_report/m_report04', 'Front@m_info');
 Route::get('/m_info/m_report/m_report05', 'Front@m_info');
 
 Route::get('/m/m_login', 'Front@m_login');
@@ -213,32 +207,142 @@ Route::get('/m_business/m_advice02', 'Front@m_business');
 Route::get('/m_business/m_insurance', 'Front@m_business');
 Route::get('/m_business/m_buy', 'Front@m_business');
 Route::get('/m_business/m_pa', 'Front@m_business');
-Route::get('/m_business/m_board', 'Front@m_business');
-Route::get('/m_business/m_data_room', 'Front@m_business');
+// Route::get('/m_business/m_board', 'Front@m_business');
+// Route::get('/m_business/m_data_room', 'Front@m_business');
+
+Route::get('/m_s_result', 'Front@m_s_result');
 
 Route::get('/m_support/m_b_info', 'Front@m_support');
-Route::get('/m_support/m_care_room', 'Front@m_support');
+// Route::get('/m_support/m_care_room', 'Front@m_support');
 Route::get('/m_support/m_electron', 'Front@m_support');
 // Route::get('/m_support/m_q_edu/m_ed01', 'Front@m_support');
-Route::get('/m_support/m_q_edu/m_ed02', 'Front@m_support');
-Route::get('/m_support/m_q_edu/m_ed03', 'Front@m_support');
-Route::get('/m_support/m_q_edu/m_ed04', 'Front@m_support');
+// Route::get('/m_support/m_q_edu/m_ed02', 'Front@m_support');
+// Route::get('/m_support/m_q_edu/m_ed03', 'Front@m_support');
+// Route::get('/m_support/m_q_edu/m_ed04', 'Front@m_support');
 // Route::get('/m_support/m_q_support/m_sp01', 'Front@m_support');
-Route::get('/m_support/m_q_support/m_sp02', 'Front@m_support');
-Route::get('/m_support/m_q_support/m_sp03', 'Front@m_support');
-Route::get('/m_support/m_q_support/m_sp04', 'Front@m_support');
+// Route::get('/m_support/m_q_support/m_sp02', 'Front@m_support');
+// Route::get('/m_support/m_q_support/m_sp03', 'Front@m_support');
+// Route::get('/m_support/m_q_support/m_sp04', 'Front@m_support');
 
-Route::get('/m_commu/c_board/m_board01', 'Front@m_commu');
-Route::get('/m_commu/c_board/m_board02', 'Front@m_commu');
-Route::get('/m_commu/c_board/m_board03', 'Front@m_commu');
-Route::get('/m_commu/c_data_room/m_room01', 'Front@m_commu');
-Route::get('/m_commu/c_data_room/m_room02', 'Front@m_commu');
-Route::get('/m_commu/c_data_room/m_room03', 'Front@m_commu');
-Route::get('/m_commu/c_data_room/m_room04', 'Front@m_commu');
+// Route::get('/m_commu/c_board/m_board01', 'Front@m_commu');
+// Route::get('/m_commu/c_board/m_board02', 'Front@m_commu');
+// Route::get('/m_commu/c_board/m_board03', 'Front@m_commu');
+// Route::get('/m_commu/c_data_room/m_room01', 'Front@m_commu');
+// Route::get('/m_commu/c_data_room/m_room02', 'Front@m_commu');
+// Route::get('/m_commu/c_data_room/m_room03', 'Front@m_commu');
+// Route::get('/m_commu/c_data_room/m_room04', 'Front@m_commu');
 
-Route::get('/m_edu/m_regular', 'Front@m_edu');
-Route::get('/m_edu/m_web', 'Front@m_edu');
-Route::get('/m_edu/m_edus', 'Front@m_edu');
+// Route::get('/m_edu/m_regular', 'Front@m_edu');
+// Route::get('/m_edu/m_web', 'Front@m_edu');
+// Route::get('/m_edu/m_edus', 'Front@m_edu');
 
-Route::get('/m_system/m_audit_system', 'Front@m_system');
-Route::get('/m_system/m_operation', 'Front@m_system');
+// Route::get('/m_system/m_audit_system', 'Front@m_system');
+// Route::get('/m_system/m_operation', 'Front@m_system');
+
+
+/*게시판 - list */
+Route::get('/m_info/m_report/m_report01/list', 'Front@m_list');
+Route::get('/m_info/m_report/m_report02/list', 'Front@m_list');
+Route::get('/m_info/m_report/m_report03/list', 'Front@m_list');
+Route::get('/m_info/m_report/m_report04/list', 'Front@m_list');
+
+Route::get('/m_business/m_buy/list', 'Front@m_list');
+Route::get('/m_business/m_pa/list', 'Front@m_list');
+Route::get('/m_business/m_board/list', 'Front@m_list');
+Route::get('/m_business/m_data_room/list', 'Front@m_list');
+
+Route::get('/m_system/m_audit_system/list', 'Front@m_list');
+Route::get('/m_system/m_operation/list', 'Front@m_list');
+
+Route::get('/m_commu/c_board/m_board01/list', 'Front@m_list');
+Route::get('/m_commu/c_board/m_board02/list', 'Front@m_list');
+Route::get('/m_commu/c_board/m_board03/list', 'Front@m_list');
+Route::get('/m_commu/c_data_room/m_room01/list', 'Front@m_list');
+Route::get('/m_commu/c_data_room/m_room02/list', 'Front@m_list');
+Route::get('/m_commu/c_data_room/m_room03/list', 'Front@m_list');
+Route::get('/m_commu/c_data_room/m_room04/list', 'Front@m_list');
+
+Route::get('/m_support/m_q_support/m_sp02/list', 'Front@m_list');
+Route::get('/m_support/m_q_support/m_sp03/list', 'Front@m_list');
+Route::get('/m_support/m_q_support/m_sp04/list', 'Front@m_list');
+
+Route::get('/m_support/m_q_edu/m_ed02/list', 'Front@m_list');
+Route::get('/m_support/m_q_edu/m_ed03/list', 'Front@m_list');
+Route::get('/m_support/m_q_edu/m_ed04/list', 'Front@m_list');
+Route::get('/m_support/m_care_room/list', 'Front@m_list');
+
+Route::get('/m_edu/m_regular/list', 'Front@m_list');
+Route::get('/m_edu/m_web/list', 'Front@m_list');
+Route::get('/m_edu/m_edus/list', 'Front@m_list');
+
+/*게시판 - write */
+
+Route::get('/m_info/m_report/m_report01/write', 'Front@m_write');
+Route::get('/m_info/m_report/m_report02/write', 'Front@m_write');
+Route::get('/m_info/m_report/m_report03/write', 'Front@m_write');
+Route::get('/m_info/m_report/m_report04/write', 'Front@m_write');
+
+Route::get('/m_business/m_buy/write', 'Front@m_write');
+Route::get('/m_business/m_pa/write', 'Front@m_write');
+Route::get('/m_business/m_board/write', 'Front@m_write');
+Route::get('/m_business/m_data_room/write', 'Front@m_write');
+
+Route::get('/m_system/m_audit_system/write', 'Front@m_write');
+Route::get('/m_system/m_operation/write', 'Front@m_write');
+
+Route::get('/m_commu/c_board/m_board01/write', 'Front@m_write');
+Route::get('/m_commu/c_board/m_board02/write', 'Front@m_write');
+Route::get('/m_commu/c_board/m_board03/write', 'Front@m_write');
+Route::get('/m_commu/c_data_room/m_room01/write', 'Front@m_write');
+Route::get('/m_commu/c_data_room/m_room02/write', 'Front@m_write');
+Route::get('/m_commu/c_data_room/m_room03/write', 'Front@m_write');
+Route::get('/m_commu/c_data_room/m_room04/write', 'Front@m_write');
+
+Route::get('/m_support/m_q_support/m_sp02/write', 'Front@m_write');
+Route::get('/m_support/m_q_support/m_sp03/write', 'Front@m_write');
+Route::get('/m_support/m_q_support/m_sp04/write', 'Front@m_write');
+
+Route::get('/m_support/m_q_edu/m_ed02/write', 'Front@m_write');
+Route::get('/m_support/m_q_edu/m_ed03/write', 'Front@m_write');
+Route::get('/m_support/m_q_edu/m_ed04/write', 'Front@m_write');
+Route::get('/m_support/m_care_room/write', 'Front@m_write');
+
+Route::get('/m_edu/m_regular/write', 'Front@m_write');
+Route::get('/m_edu/m_web/write', 'Front@m_write');
+Route::get('/m_edu/m_edus/write', 'Front@m_write');
+
+/*게시판 - view */
+
+Route::get('/m_info/m_report/m_report01/view', 'Front@m_view');
+Route::get('/m_info/m_report/m_report02/view', 'Front@m_view');
+Route::get('/m_info/m_report/m_report03/view', 'Front@m_view');
+Route::get('/m_info/m_report/m_report04/view', 'Front@m_view');
+
+Route::get('/m_business/m_buy/view', 'Front@m_view');
+Route::get('/m_business/m_pa/view', 'Front@m_view');
+Route::get('/m_business/m_board/view', 'Front@m_view');
+Route::get('/m_business/m_data_room/view', 'Front@m_view');
+
+Route::get('/m_system/m_audit_system/view', 'Front@m_view');
+Route::get('/m_system/m_operation/view', 'Front@m_view');
+
+Route::get('/m_commu/c_board/m_board01/view', 'Front@m_view');
+Route::get('/m_commu/c_board/m_board02/view', 'Front@m_view');
+Route::get('/m_commu/c_board/m_board03/view', 'Front@m_view');
+Route::get('/m_commu/c_data_room/m_room01/view', 'Front@m_view');
+Route::get('/m_commu/c_data_room/m_room02/view', 'Front@m_view');
+Route::get('/m_commu/c_data_room/m_room03/view', 'Front@m_view');
+Route::get('/m_commu/c_data_room/m_room04/view', 'Front@m_view');
+
+Route::get('/m_support/m_q_support/m_sp02/view', 'Front@m_view');
+Route::get('/m_support/m_q_support/m_sp03/view', 'Front@m_view');
+Route::get('/m_support/m_q_support/m_sp04/view', 'Front@m_view');
+
+Route::get('/m_support/m_q_edu/m_ed02/view', 'Front@m_view');
+Route::get('/m_support/m_q_edu/m_ed03/view', 'Front@m_view');
+Route::get('/m_support/m_q_edu/m_ed04/view', 'Front@m_view');
+Route::get('/m_support/m_care_room/view', 'Front@m_view');
+
+Route::get('/m_edu/m_regular/view', 'Front@m_view');
+Route::get('/m_edu/m_web/view', 'Front@m_view');
+Route::get('/m_edu/m_edus/view', 'Front@m_view');

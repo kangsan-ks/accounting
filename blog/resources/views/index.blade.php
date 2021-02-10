@@ -46,14 +46,14 @@
                         <p>총회보고 설명 텍스트</p>   
                     </div>  
                 </a></li>
-                <li class="flex_box_cen"><a href="/support/q_support/sp01/list" class="flex_box_cen">
+                <li class="flex_box_cen"><a href="/support/q_support/sp02/list" class="flex_box_cen">
                     <img src="/img/main_pic03.png" alt="품질관리지원">
                     <div class="main_content_text">
                         <h4>품질관리지원</h4>
                         <p>품질관리지원 설명 텍스트</p>   
                     </div>
                 </a></li>
-                <li class="flex_box_cen"><a href="/support/q_edu/ed01/list" class="flex_box_cen">
+                <li class="flex_box_cen"><a href="/support/q_edu/ed02/list" class="flex_box_cen">
                     <img src="/img/main_pic04.png" alt="품질관리교육">
                     <div class="main_content_text">
                         <h4>품질관리교육</h4>

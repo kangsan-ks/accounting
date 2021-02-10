@@ -9,8 +9,7 @@
         </form> --}} 
         <img src="/img/m_close.png" class="icon main_menu" alt=""> 
         <h1 class="logo"><a href="/m/index"><img src="/img/m_logo.png" alt=""></a></h1>
-        <img src="/img/m_main_search.png" class="icon" alt="">          
-        
+        <img src="/img/m_main_search.png" class="icon" alt="">
         </div>
     </div>
     <ul class="m_ship flex_box_bet f_v_center inner">
@@ -30,7 +29,7 @@
                 <li><a href="/m_info/m_greeting">회장인사말</a></li>    
                 <li><a href="/m_info/m_chart">조직도</a></li>    
                 <li><a href="/m_info/m_account">회원회계법인</a></li>    
-                <li><a href="/m_info/m_report/m_report01">총회보고</a></li>    
+                <li><a href="/m_info/m_report/m_report01/list">총회보고</a></li>    
             </ul>                
         </li>
         <li> 
@@ -43,11 +42,11 @@
             </div> 
             <ul class="sub_sub_menu">
                 <li><a href="/m_business/m_insurance">전문인세무보험</a></li>    
-                <li><a href="/m_business/m_buy">공동구매</a></li>    
-                <li><a href="/m_business/m_pa">PA,회계CFO아웃소싱</a></li>    
+                <li><a href="/m_business/m_buy/list">공동구매</a></li>    
+                <li><a href="/m_business/m_pa/list">PA,회계CFO아웃소싱</a></li>    
                 <li><a href="/m_business/m_advice">자문요청</a></li>    
-                <li><a href="/m_business/m_board">게시판</a></li>    
-                <li><a href="/m_business/m_data_room">업무자료실</a></li>    
+                <li><a href="/m_business/m_board/list">게시판</a></li>    
+                <li><a href="/m_business/m_data_room/list">업무자료실</a></li>    
             </ul>                
         </li>
         <li> 
@@ -59,8 +58,8 @@
                 </div>   
             </div> 
             <ul class="sub_sub_menu">
-                <li><a href="">회계감사제도개선</a></li>    
-                <li><a href="">한공회운영개선</a></li> 
+                <li><a href="/m_system/m_audit_system/list">회계감사제도개선</a></li>    
+                <li><a href="/m_system/m_operation/list">한공회운영개선</a></li> 
             </ul>                
         </li>
         <li> 
@@ -72,8 +71,8 @@
                 </div>   
             </div> 
             <ul class="sub_sub_menu">
-                <li><a href="">게시판</a></li>    
-                <li><a href="">자료실</a></li>
+                <li><a href="/m_commu/c_board/m_board01/list">게시판</a></li>    
+                <li><a href="/m_commu/c_data_room/m_room01/list">자료실</a></li>
             </ul>                
         </li>
         <li> 
@@ -86,10 +85,10 @@
             </div> 
             <ul class="sub_sub_menu">
                 <li><a href="/m_support/m_b_info">사업소개</a></li>    
-                <li><a href="/m_support/m_q_support/m_sp01">품질관리지원</a></li>    
-                <li><a href="/m_support/m_q_edu/m_ed01">품질관리교육</a></li>    
+                <li><a href="/m_support/m_q_support/m_sp02/list">품질관리지원</a></li>    
+                <li><a href="/m_support/m_q_edu/m_ed02/list">품질관리교육</a></li>    
                 <li><a href="/m_support/m_electron">전자조서시스템개발</a></li>    
-                <li><a href="/m_support/m_care_room">품질관리자료실</a></li>    
+                <li><a href="/m_support/m_care_room/list">품질관리자료실</a></li>    
             </ul>                
         </li>
         <li> 
@@ -101,9 +100,9 @@
                 </div>   
             </div> 
             <ul class="sub_sub_menu">
-                <li><a href="">정기연수</a></li>    
-                <li><a href="">웹연수</a></li>    
-                <li><a href="">교육자료실</a></li>
+                <li><a href="/m_edu/m_regular/list">정기연수</a></li>    
+                <li><a href="/m_edu/m_web/list">웹연수</a></li>    
+                <li><a href="/m_edu/m_edus/list">교육자료실</a></li>
             </ul>                
         </li>
         

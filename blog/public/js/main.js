@@ -104,5 +104,22 @@ $(function(){
 			$(this).siblings('.re_main_down').children('.on_img_none').css({display:'block'});
 			$(this).parent().parent().siblings().children().children().children('.on_img_none').css({display:'none'});
 		});
+		$('#sub .m_sub_menu').click(function(){
+			var sub_sub_menu = $(this).find('ul');
+			if(sub_sub_menu.length){
+				$(this).find('ul').slideToggle();
+			}else{
+				$(this).find('ul').hide();
+			}					
+		});
+
+		$('.m_insurance li').click(function(){
+			$(this).find('p').slideToggle();
+			$(this).toggleClass('on');
+		});
+
+		$('.header_box .icon').click(function(){
+			$('.header_box .search_form').toggleClass('on');
+		});
 
 });

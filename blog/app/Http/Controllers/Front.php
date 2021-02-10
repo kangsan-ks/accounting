@@ -262,6 +262,31 @@ class Front extends Controller
 
         return view($view_url, $return_list);
     }
+    public function m_s_result(Request $request){
+        
+        $return_list = array();
+
+        return view('m/sub/m_s_result', $return_list);
+    }
+    /*게시판*/
+    public function m_list(Request $request){
+        
+        $return_list = array();
+
+        return view('m/sub/list', $return_list);
+    }
+    public function m_write(Request $request){
+        
+        $return_list = array();
+
+        return view('m/sub/write', $return_list);
+    }
+    public function m_view(Request $request){
+        
+        $return_list = array();
+
+        return view('m/sub/view', $return_list);
+    }
 
 } 
 ?>
