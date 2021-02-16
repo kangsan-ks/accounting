@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.text_ec{overflow: hidden; text-overflow: ellipsis; word-wrap:break-word; white-space: nowrap;}
+
+/* side nav */
+.dash_logo{max-width: 100%; height: 100%; display: inline-block;}
+.main-navbar .navbar > *{display: inline-block;}
+.main-navbar .navbar > ul{display: flex;}
+.main-sidebar .navbar-brand{text-align: center;}
+
+.nav-link{position: relative;}
+.nav-link i.right{position: absolute; right: 0; top: 50% !important; transform: translateY(-50%);}
+.dep2{display: none;}
+.dep2 a{background-color: #eee;}
+.main-sidebar .nav-wrapper::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);border-radius: 10px;background-color: #F5F5F5;}
+.main-sidebar .nav-wrapper::-webkit-scrollbar{width: 6px;background-color: #F5F5F5;}
+.main-sidebar .nav-wrapper::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,.3);background-color: #f8a269;}
+.main-navbar .navbar .notifications.cust{width: 120px;}
+.DPIB{display: inline-block !important; vertical-align: middle;}
+.custom-checkbox{margin-right: 2%;}
+.datepicker{z-index: 1020 !important;}
+.pagination{justify-content: center;}

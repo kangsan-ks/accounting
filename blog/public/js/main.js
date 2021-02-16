@@ -1,4 +1,8 @@
 $(function(){
+	$('.goBackPage').click(function(e){
+		e.preventDefault();
+		history.go(-1);
+	})
     var mySwiper = new Swiper('.swiper-container', {
 		// Optional parameters
 		direction: 'horizontal',

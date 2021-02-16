@@ -6,21 +6,22 @@
     <div class="login_box inner">
         <div class="login_content">
             <h3>login</h3>
-            <form action="" method="post" class="login_form">
+            <form action="/FAction/loginAction" method="post" class="login_form">
+                @csrf
                 <p class="field">
                     <label for="login">id</label>
                     <img src="/img/login.png" alt="login">
-                    <input type="text" class="login" name="" placeholder="ID">
+                    <input type="text" class="login" name="m_id" placeholder="ID" required>
                 </p>
     
                 <p class="field">
                     <label for="password">password</label>
                     <img src="/img/password.png" alt="password">
-                    <input type="text" class="login" name="" placeholder="Password">
+                    <input type="password" class="login" name="m_passwd" placeholder="Password" required>
                 </p>
                 
                 <label for="auto">자동로그인</label>
-                <input type="checkbox" class="auto" name="">
+                <input type="checkbox" class="auto" name="auto_login" value="1">
                 <span>자동로그인</span>
     
                 <p class="field">

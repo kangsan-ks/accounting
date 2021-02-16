@@ -10,8 +10,13 @@
                     <input type="submit" class="submit"/>
                 </form>
                 <ul class="m_ship">
+                    @if (session('user_id') == '')
                     <li class="login"><a href="/login">로그인</a></li>
-                    <li><a href="/join/join">회원가입</a></li>
+                    <li><a href="/join/join">회원가입</a></li>    
+                    @else
+                    <li><a href="/FAction/logoutAction">로그아웃</a></li>
+                    @endif
+                    
                 </ul>
             </div>
         </div>
