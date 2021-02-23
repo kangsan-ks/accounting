@@ -27,10 +27,30 @@ class BofficeAcCheck
                 }
             }
         }
-
-        $b_title_chk = $request->bcc;
+        
+        if($request->bcc != ''){
+            $b_title_chk = $request->bcc;
+        }else{
+            $b_title_chk = $request->mem_cate;
+        }
 
         switch($b_title_chk){
+
+            case "0":
+                $b_title01 = '사용자 관리';
+                $b_title02 = '일반회원';
+                break;
+            
+            case "1":
+                $b_title01 = '사용자 관리';
+                $b_title02 = '회계회원';
+                break;
+
+            case "9":
+                $b_title01 = '사용자 관리';
+                $b_title02 = '자문회원';
+                break;
+
             case "SLIDER":
                 $b_title01 = '홈페이지 관리';
                 $b_title02 = '슬라이드';
@@ -42,38 +62,43 @@ class BofficeAcCheck
                 break;
 
             case "BC002":
-                $b_title01 = '회원회계법인';
+                $b_title01 = '협의회소개';
                 $b_title02 = '회계법인현황';
                 break;
 
             case "BC003":
-                $b_title01 = '회원회계법인';
+                $b_title01 = '협의회소개';
                 $b_title02 = '회비납부현황';
                 break;
 
             case "BC004":
-                $b_title01 = '총회보고';
+                $b_title01 = '협의회소개';
                 $b_title02 = '사업보고';
                 break;
 
             case "BC005":
-                $b_title01 = '총회보고';
+                $b_title01 = '협의회소개';
                 $b_title02 = '결산보고';
                 break;
 
             case "BC006":
-                $b_title01 = '총회보고';
+                $b_title01 = '협의회소개';
                 $b_title02 = '사업계획';
                 break;
 
             case "BC007":
-                $b_title01 = '총회보고';
+                $b_title01 = '협의회소개';
                 $b_title02 = '예산';
                 break;
-
+                
             case "BC008":
                 $b_title01 = '공동사업';
                 $b_title02 = '공동구매';
+                break;
+
+            case "FAQ":
+                $b_title01 = '공동사업';
+                $b_title02 = '전문인세무보험';
                 break;
 
             case "BC009":

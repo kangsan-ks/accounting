@@ -6,7 +6,7 @@
     <div class="join business inner">
         <h1 class="logo"><a href="/"><img src="/img/logo.png" alt=""></a></h1>
         <h4 class="h_back">회계기업 회원 전용 회원가입</h4>       
-        <form action="/FAction/join" method="post" name="joinF">
+        <form action="/FAction/join" method="post" name="joinF" onsubmit="return frm_chk();">
             @csrf
             <input type="hidden" name="join_type" value="business" required>
             <ul>

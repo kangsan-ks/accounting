@@ -44,54 +44,54 @@
                     <a href="/info/chart">조직도</a>
                 </li>
                 <li class=" @if(request()->segment(2) == 'm_accounting') on @endif ">
-                    <a href="#" class="dep1_btn">회원회계법인<img src="/img/down_btn.png" alt="down_btn"></a>                    
-                    <ul class="sub_sub_menu" >
+                    <a href="/info/m_accounting/account">회계법인현황</a>
+                    {{-- <ul class="sub_sub_menu" >
                         <li class=" @if(request()->segment(3) == 'account') active @endif "><a href="/info/m_accounting/account">회계법인현황</a></li>
-                        <li class=" @if(request()->segment(3) == 'fee') active @endif "><a href="/info/m_accounting/fee">회비납부현황</a></li> 
-                    </ul>
+                        <li class=" @if(request()->segment(3) == 'fee') active @endif "><a href="/info/m_accounting/fee">회비납부현황</a></li>
+                    </ul> --}}
                 </li>
                 <li class=" @if(request()->segment(2) == 'report') on @endif ">
                     <a href="#" class="dep1_btn">총회보고<img src="/img/down_btn.png" alt="down_btn"></a>                   
                     <ul class="sub_sub_menu">
-                        <li class=" @if(request()->segment(3) == 'report01') active @endif "><a href="/info/report/report01/list">사업보고</a></li>
-                        <li class=" @if(request()->segment(3) == 'report02') active @endif "><a href="/info/report/report02/list">결산보고</a></li>
-                        <li class=" @if(request()->segment(3) == 'report03') active @endif "><a href="/info/report/report03/list">사업계획</a></li>
-                        <li class=" @if(request()->segment(3) == 'report04') active @endif "><a href="/info/report/report04/list">예산</a></li>
+                        <li class=" @if(request()->segment(3) == 'report01') active @endif "><a href="/info/report/report01/list?bcc=BC004">사업보고</a></li>
+                        <li class=" @if(request()->segment(3) == 'report02') active @endif "><a href="/info/report/report02/list?bcc=BC005">결산보고</a></li>
+                        <li class=" @if(request()->segment(3) == 'report03') active @endif "><a href="/info/report/report03/list?bcc=BC006">사업계획</a></li>
+                        <li class=" @if(request()->segment(3) == 'report04') active @endif "><a href="/info/report/report04/list?bcc=BC007">예산</a></li>
                         <li class=" @if(request()->segment(3) == 'report05') active @endif "><a href="/info/report/report05">회칙</a></li>
-                    </ul>                   
+                    </ul>
                 </li>
             </ul>
             @elseif(request()->segment(1) == 'business')
             <ul class="sub_menu_list">
-                <li class="@if(request()->segment(2) == 'insurance') on @endif "><a href="/business/insurance">전문인세무보험</a></li>
-                <li class="@if(request()->segment(2) == 'buy') on @endif "><a href="/business/buy/list">공동구매</a></li>
-                <li class="@if(request()->segment(2) == 'pa') on @endif "><a href="/business/pa/list">PA,회계CFO아웃소싱</a></li>
+                <li class="@if(request()->segment(2) == 'insurance') on @endif "><a href="/business/insurance?bcc=FAQ">전문인세무보험</a></li>
+                <li class="@if(request()->segment(2) == 'buy') on @endif "><a href="/business/buy/list?bcc=BC008">공동구매</a></li>
+                <li class="@if(request()->segment(2) == 'pa') on @endif "><a href="/business/pa/list?bcc=BC009">PA,회계CFO아웃소싱</a></li>
                 <li class="@if(request()->segment(2) == 'advice') on @endif "><a href="/business/advice">자문요청</a></li>
-                <li class="@if(request()->segment(2) == 'board') on @endif "><a href="/business/board/list">게시판</a></li>
-                <li class="@if(request()->segment(2) == 'data_room') on @endif "><a href="/business/data_room/list">업무자료실</a></li>
+                <li class="@if(request()->segment(2) == 'board') on @endif "><a href="/business/board/list?bcc=BC011">게시판</a></li>
+                <li class="@if(request()->segment(2) == 'data_room') on @endif "><a href="/business/data_room/list?bcc=BC012">업무자료실</a></li>
             </ul>
             @elseif(request()->segment(1) == 'system')
             <ul class="sub_menu_list">
-                <li class="@if(request()->segment(2) == 'audit_system') on @endif "><a href="/system/audit_system/list">회계감사제도개선</a></li>
-                <li class="@if(request()->segment(2) == 'operation') on @endif "><a href="/system/operation/list">한공회운영개선</a></li>
+                <li class="@if(request()->segment(2) == 'audit_system') on @endif "><a href="/system/audit_system/list?bcc=BC013">회계감사제도개선</a></li>
+                <li class="@if(request()->segment(2) == 'operation') on @endif "><a href="/system/operation/list?bcc=BC014">한공회운영개선</a></li>
             </ul>
             @elseif(request()->segment(1) == 'commu')
             <ul class="sub_menu_list">
                 <li class=" @if(request()->segment(2) == 'c_board') on @endif ">
                     <a href="#" class="dep1_btn">게시판<img src="/img/down_btn.png" alt="down_btn"></a>                    
                     <ul class="sub_sub_menu">
-                        <li class=" @if(request()->segment(3) == 'board01') active @endif "><a href="/commu/c_board/board01/list">자유게시판</a></li>
-                        <li class=" @if(request()->segment(3) == 'board02') active @endif "><a href="/commu/c_board/board02/list">질문게시판</a></li>
-                        <li class=" @if(request()->segment(3) == 'board03') active @endif "><a href="/commu/c_board/board03/list">업무협조게시판</a></li>
+                        <li class=" @if(request()->segment(3) == 'board01') active @endif "><a href="/commu/c_board/board01/list?bcc=BC015">자유게시판</a></li>
+                        <li class=" @if(request()->segment(3) == 'board02') active @endif "><a href="/commu/c_board/board02/list?bcc=BC016">질문게시판</a></li>
+                        <li class=" @if(request()->segment(3) == 'board03') active @endif "><a href="/commu/c_board/board03/list?bcc=BC017">업무협조게시판</a></li>
                     </ul>
                 </li>
                 <li class=" @if(request()->segment(2) == 'c_data_room') on @endif ">
                     <a href="#" class="dep1_btn">자료실<img src="/img/down_btn.png" alt="down_btn"></a>                    
                     <ul class="sub_sub_menu">
-                        <li class=" @if(request()->segment(3) == 'room01') active @endif "><a href="/commu/c_data_room/room01/list">감사업무</a></li>
-                        <li class=" @if(request()->segment(3) == 'room02') active @endif "><a href="/commu/c_data_room/room02/list">세무업무</a></li>
-                        <li class=" @if(request()->segment(3) == 'room03') active @endif "><a href="/commu/c_data_room/room03/list">컨설팅업무</a></li>
-                        <li class=" @if(request()->segment(3) == 'room04') active @endif "><a href="/commu/c_data_room/room04/list">기타업무</a></li>
+                        <li class=" @if(request()->segment(3) == 'room01') active @endif "><a href="/commu/c_data_room/room01/list?bcc=BC018">감사업무</a></li>
+                        <li class=" @if(request()->segment(3) == 'room02') active @endif "><a href="/commu/c_data_room/room02/list?bcc=BC019">세무업무</a></li>
+                        <li class=" @if(request()->segment(3) == 'room03') active @endif "><a href="/commu/c_data_room/room03/list?bcc=BC020">컨설팅업무</a></li>
+                        <li class=" @if(request()->segment(3) == 'room04') active @endif "><a href="/commu/c_data_room/room04/list?bcc=BC021">기타업무</a></li>
                     </ul>
                 </li>
             </ul>
@@ -102,28 +102,28 @@
                     <a href="#" class="dep1_btn">품질관리지원<img src="/img/down_btn.png" alt="down_btn"></a>                   
                     <ul class="sub_sub_menu">
                         {{-- <li class=" @if(request()->segment(3) == 'sp01') active @endif "><a href="/support/q_support/sp01">품질관리실자문</a></li> --}}
-                        <li class=" @if(request()->segment(3) == 'sp02') active @endif "><a href="/support/q_support/sp02/list">자문신청</a></li>
-                        <li class=" @if(request()->segment(3) == 'sp03') active @endif "><a href="/support/q_support/sp03/list">자문내용게시판</a></li>
-                        <li class=" @if(request()->segment(3) == 'sp04') active @endif "><a href="/support/q_support/sp04/list">자문보고</a></li>
+                        <li class=" @if(request()->segment(3) == 'sp02') active @endif "><a href="/support/q_support/sp02/list?bcc=BC022">자문신청</a></li>
+                        <li class=" @if(request()->segment(3) == 'sp03') active @endif "><a href="/support/q_support/sp03/list?bcc=BC023">자문내용게시판</a></li>
+                        <li class=" @if(request()->segment(3) == 'sp04') active @endif "><a href="/support/q_support/sp04/list?bcc=BC024">자문보고</a></li>
                     </ul>
                 </li>
                 <li class="@if(request()->segment(2) == 'q_edu') on @endif ">
                     <a href="#" class="dep1_btn">품질관리교육<img src="/img/down_btn.png" alt="down_btn"></a>                    
                     <ul class="sub_sub_menu">
                         {{-- <li class=" @if(request()->segment(3) == 'ed01') active @endif "><a href="/support/q_edu/ed01">품질관리ERP지원</a></li> --}}
-                        <li class=" @if(request()->segment(3) == 'ed02') active @endif "><a href="/support/q_edu/ed02/list">품질관리ERP지원신청</a></li>
-                        <li class=" @if(request()->segment(3) == 'ed03') active @endif "><a href="/support/q_edu/ed03/list">품질관리ERP도입신청</a></li>
-                        <li class=" @if(request()->segment(3) == 'ed04') active @endif "><a href="/support/q_edu/ed04/list">품질관리ERP교육신청</a></li>
+                        <li class=" @if(request()->segment(3) == 'ed02') active @endif "><a href="/support/q_edu/ed02/list?bcc=BC025">품질관리ERP지원신청</a></li>
+                        <li class=" @if(request()->segment(3) == 'ed03') active @endif "><a href="/support/q_edu/ed03/list?bcc=BC026">품질관리ERP도입신청</a></li>
+                        <li class=" @if(request()->segment(3) == 'ed04') active @endif "><a href="/support/q_edu/ed04/list?bcc=BC027">품질관리ERP교육신청</a></li>
                     </ul>
                 </li>
                 <li class="@if(request()->segment(2) == 'electron') on @endif "><a href="/support/electron">전자조서시스템개발</a></li>
-                <li class="@if(request()->segment(2) == 'care_room') on @endif "><a href="/support/care_room/list">품질관리자료실</a></li>
+                <li class="@if(request()->segment(2) == 'care_room') on @endif "><a href="/support/care_room/list?bcc=BC028">품질관리자료실</a></li>
             </ul>
             @else
             <ul class="sub_menu_list">
-                <li class="@if(request()->segment(2) == 'regular') on @endif "><a href="/edu/regular/list">정기연수</a></li>
-                <li class="@if(request()->segment(2) == 'web') on @endif "><a href="/edu/web/list">웹연수</a></li>
-                <li class="@if(request()->segment(2) == 'edus') on @endif "><a href="/edu/edus/list">교육자료실</a></li>
+                <li class="@if(request()->segment(2) == 'regular') on @endif "><a href="/edu/regular/list?bcc=BC029">정기연수</a></li>
+                <li class="@if(request()->segment(2) == 'web') on @endif "><a href="/edu/web/list?bcc=BC030">웹연수</a></li>
+                <li class="@if(request()->segment(2) == 'edus') on @endif "><a href="/edu/edus/list?bcc=BC031">교육자료실</a></li>
             </ul>
             @endif
         </div>

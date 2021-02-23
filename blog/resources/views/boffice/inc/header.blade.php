@@ -74,7 +74,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link @if(request()->b_title01 == '회원회계법인') active on @endif" href="#none">
                                     <i class="material-icons">edit</i>
                                     <span>회원회계법인</span>
@@ -89,15 +89,17 @@
                                         <span>회비납부현황</span>
                                     </a>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
-                                <a class="nav-link @if(request()->b_title01 == '총회보고') active on @endif" href="#none">
+                                <a class="nav-link @if(request()->b_title01 == '협의회소개') active on @endif" href="#none">
                                     <i class="material-icons">edit</i>
-                                    <span>총회보고</span>
+                                    <span>협의회소개</span>
                                     <i class="material-icons right">add_circle_outline</i>
-
                                 </a>
                                 <div class="dep2">
+                                    <a class="nav-link @if(request()->b_title02 == '회계법인현황') active @endif" href="/boffice/list?bcc=BC002">
+                                        <span>회계법인현황</span>
+                                    </a>
                                     <a class="nav-link @if(request()->b_title02 == '사업보고') active @endif" href="/boffice/list?bcc=BC004">
                                         <span>사업보고</span>
                                     </a>
@@ -120,6 +122,9 @@
 
                                 </a>
                                 <div class="dep2">
+                                    <a class="nav-link @if(request()->b_title02 == '전문인세무보험') active @endif" href="/boffice/list?bcc=FAQ">
+                                        <span>전문인세무보험</span>
+                                    </a>
                                     <a class="nav-link @if(request()->b_title02 == '공동구매') active @endif" href="/boffice/list?bcc=BC008">
                                         <span>공동구매</span>
                                     </a>
@@ -235,12 +240,23 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if(request()->b_title01 == '사용자 관리') active on @endif" href="/boffice/FMlist">
+                                <a class="nav-link @if(request()->b_title01 == '사용자 관리') active on @endif" href="#none">
                                     <i class="material-icons">edit</i>
                                     <span>사용자 관리</span>
                                     <i class="material-icons right">add_circle_outline</i>
 
                                 </a>
+                                <div class="dep2">
+                                    <a class="nav-link @if(request()->b_title02 == '일반회원') active @endif" href="/boffice/FMlist?mem_cate=0">
+                                        <span>일반회원</span>
+                                    </a>
+                                    <a class="nav-link @if(request()->b_title02 == '회계회원') active @endif" href="/boffice/FMlist?mem_cate=1">
+                                        <span>회계회원</span>
+                                    </a>
+                                    <a class="nav-link @if(request()->b_title02 == '자문회원') active @endif" href="/boffice/FMlist?mem_cate=9">
+                                        <span>자문회원</span>
+                                    </a>
+                                </div>
                             </li>
                         </ul>
                     </div>

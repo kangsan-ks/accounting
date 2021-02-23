@@ -389,9 +389,9 @@ Class PagingFunction
 			}
 			
 			if($showFast == false) {
-				$paging_view = $firstBtn . $prevBtn .'<ul>'. $paging .'</ul>'. $nextBtn . $endBtn;
+				$paging_view = $firstBtn . $prevBtn .'<ul class="flex_box_cen">'. $paging .'</ul>'. $nextBtn . $endBtn;
 			} else {
-				$paging_view = $firstBtn . $prevBtn .'<ul>'. $paging .'</ul>'. $nextBtn . $endBtn;
+				$paging_view = $firstBtn . $prevBtn .'<ul class="flex_box_cen">'. $paging .'</ul>'. $nextBtn . $endBtn;
 			}
 			
 			return $paging_view;
@@ -583,9 +583,9 @@ Class PagingFunction
 				}
 				
 				if($showFast == false) {
-					$paging_view = $firstBtn . $prevBtn .'<ul>'. $paging .'</ul>'. $nextBtn . $endBtn;
+					$paging_view = $firstBtn . $prevBtn .'<ul class="flex_box_cen">'. $paging .'</ul>'. $nextBtn . $endBtn;
 				} else {
-					$paging_view = $firstBtn . $prevBtn .'<ul>'. $paging .'</ul>'. $nextBtn . $endBtn;
+					$paging_view = $firstBtn . $prevBtn .'<ul class="flex_box_cen">'. $paging .'</ul>'. $nextBtn . $endBtn;
 				}
 				
 				return $paging_view;

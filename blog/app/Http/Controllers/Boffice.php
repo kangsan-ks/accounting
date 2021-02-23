@@ -278,7 +278,7 @@ class Boffice extends Controller
 
 
         $BC002_list = DB::table('board')
-                        ->where('bc_code', 'BC002')
+                        ->where('bc_code', 'BC010')
                         ->limit(10)
                         ->get();
 
@@ -363,48 +363,85 @@ class Boffice extends Controller
 
         }
 
-        if($request->bcc == 'BC003' || $request->bcc == 'BC004' || $request->bcc == 'BC005' || $request->bcc == 'BC006' || $request->bcc == 'BC007' || $request->bcc == 'BC008'){
+        if($request->bcc == 'BC002'){
+
+            $BC002_idx = DB::table('board')->insertGetId([
+                "bc_code" => $request->bcc,
+                "subject" => $request->subject,
+                "writer2" => $request->writer2,
+                "ect_num1" => $request->ect_num1,
+                "link_value" => $request->link_value,
+                "writer" => $put_writer,
+                "use_status" => $request->use_status,
+                "reg_date" => \Carbon\Carbon::now()
+            ]);
+
+            if(!empty($request->year_data)){
+                $year_data_arr = $request->year_data;
+                $num_data_arr = $request->num_data;
+                $price01_data_arr = $request->price01_data;
+                $price02_data_arr = $request->price02_data;
+                $price03_data_arr = $request->price03_data;
+                // print_r($year_data_arr);
+                // exit;
+                foreach($request->year_data as $key => $value){
+                    DB::table('board_add_datas')->insert([
+                        "parent_board_idx" => $BC002_idx,
+                        "year_data" => $year_data_arr[$key],
+                        "num_data" => $num_data_arr[$key],
+                        "price01_data" => $price01_data_arr[$key],
+                        "price02_data" => $price02_data_arr[$key],
+                        "price03_data" => $price03_data_arr[$key],
+                    ]);
+                }
+            }
+
+        }
+
+        if($request->bcc != 'SLIDER' && $request->bcc != 'BC002' && $request->bcc != 'POPUP'){
 
             $name_orig = '';
             $name_save = '';
+            if(isset($_FILES['files'])){
+                if($_FILES['files']['name'] != "") {
 
-            if($_FILES['files']['name'] != "") {
+                    $file = $_FILES['files'];
+                    $upload_directory = './storage/app/images/';
+                    $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
+                    $allowed_extensions = explode(',', $ext_str);
 
-                $file = $_FILES['files'];
-                $upload_directory = './storage/app/images/';
-                $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
-                $allowed_extensions = explode(',', $ext_str);
+                    $max_file_size = 5242880000000000;
+                    $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
 
-                $max_file_size = 5242880000000000;
-                $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
+                    // 확장자 체크
+                    if(!in_array($ext, $allowed_extensions)) {
+                        echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+                        exit;
+                    }
 
-                // 확장자 체크
-                if(!in_array($ext, $allowed_extensions)) {
-                    echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
-                    exit;
+                    // 파일 크기 체크
+                    if($file['size'] >= $max_file_size) {
+                        //echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+                        //exit;
+                    }
+
+                    $path = md5(microtime()) . '.' . $ext;
+                    if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
+
+
+                        $file_id = md5(uniqid(rand(), true));
+                        $name_orig = $file['name'];
+                        $name_save = $path;
+
+                    }
+
                 }
-
-                // 파일 크기 체크
-                if($file['size'] >= $max_file_size) {
-                    //echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
-                    //exit;
-                }
-
-                $path = md5(microtime()) . '.' . $ext;
-                if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
-
-
-                    $file_id = md5(uniqid(rand(), true));
-                    $name_orig = $file['name'];
-                    $name_save = $path;
-
-                }
-
             }
 
             DB::table('board')->insert([
                 "bc_code" => $request->bcc,
                 "subject" => $request->subject,
+                "contents" => $request->contents,
                 "attach_file" => $name_orig,
                 "real_file_name" => $name_save,
                 "writer" => $put_writer,
@@ -464,6 +501,59 @@ class Boffice extends Controller
 
         }
 
+        if($request->bcc == 'POPUP'){
+
+            $name_orig = '';
+            $name_save = '';
+
+            if($_FILES['files']['name'] != "") {
+
+                $file = $_FILES['files'];
+                $upload_directory = './storage/app/images/';
+                $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
+                $allowed_extensions = explode(',', $ext_str);
+
+                $max_file_size = 5242880000000000;
+                $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
+
+                // 확장자 체크
+                if(!in_array($ext, $allowed_extensions)) {
+                    echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+                    exit;
+                }
+
+                $path = md5(microtime()) . '.' . $ext;
+
+                if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
+                    $file_id = md5(uniqid(rand(), true));
+                    $name_orig = $file['name'];
+                    $name_save = $path;
+                }
+
+            }
+
+            $min_prino = DB::table('popup_list');
+
+            DB::table('popup_list')->insert([
+                "subject" => $request->subject,
+                "link_value" => $request->link_value,
+                "link_blank" => $request->link_blank,
+                "use_status" => $request->use_status,
+                "date_status" => $request->date_status,
+                "start_date" => $request->start_date,
+                "end_date" => $request->end_date,
+                "attach_file" => $name_orig,
+                "real_file_name" => $name_save,
+                "position_status" => $request->position_status,
+                "position_x" => $request->position_x,
+                "position_y" => $request->position_y,
+                "img_width" => $request->img_width,
+                "img_height" => $request->img_height,
+                "reg_date" => \Carbon\Carbon::now()
+            ]);
+
+        }
+
         echo '<script>alert("게시글 작성이 완료됐습니다."); location.href="/boffice/list?bcc='.$request->bcc.'";</script>';
     }
 
@@ -485,22 +575,40 @@ class Boffice extends Controller
         $thisPage = ($request->page) ? $request->page : 1 ;
 		$paging = new PagingFunction($paging_option);
 
-        $totalQuery = DB::table('board');
-        $totalQuery->where('bc_code', $request->bcc);
-        $totalCount = $totalQuery->get()->count();
-        $paging_view = $paging->paging($totalCount, $thisPage, "page");
+        if($request->bcc != 'POPUP'){
 
-        $query = DB::table('board')
-                        ->where('bc_code', $request->bcc);
+            $totalQuery = DB::table('board');
+            $totalQuery->where('bc_code', $request->bcc);
+            $totalCount = $totalQuery->get()->count();
+            $paging_view = $paging->paging($totalCount, $thisPage, "page");
 
-        if($request->page != "" && $request->page > 1) {
-            $query->skip(($request->page - 1) * $paging_option["pageSize"]);
-        }
+            $query = DB::table('board')
+                            ->where('bc_code', $request->bcc);
 
-        if($request->bcc == 'SLIDER'){
-            $view_list = $query->orderBy('prino', 'desc')->take($paging_option["pageSize"])->get();
+            if($request->page != "" && $request->page > 1) {
+                $query->skip(($request->page - 1) * $paging_option["pageSize"]);
+            }
+
+            if($request->bcc == 'SLIDER'){
+                $view_list = $query->orderBy('prino', 'desc')->take($paging_option["pageSize"])->get();
+            }else{
+                $view_list = $query->orderBy('idx', 'desc')->take($paging_option["pageSize"])->get();
+            }
+
         }else{
+
+            $totalQuery = DB::table('popup_list');
+            $totalCount = $totalQuery->get()->count();
+            $paging_view = $paging->paging($totalCount, $thisPage, "page");
+
+            $query = DB::table('popup_list');
+
+            if($request->page != "" && $request->page > 1) {
+                $query->skip(($request->page - 1) * $paging_option["pageSize"]);
+            }
+
             $view_list = $query->orderBy('idx', 'desc')->take($paging_option["pageSize"])->get();
+
         }
 
 
@@ -582,11 +690,28 @@ class Boffice extends Controller
     {
         $return_list = array();
 
-        $view_data = DB::table('board')
-                        ->where('idx', $request->b_idx)
-                        ->first();
+        if($request->bcc != 'POPUP'){
+
+            $view_data = DB::table('board')
+            ->where('idx', $request->b_idx)
+            ->first();
+
+            if($request->bcc == 'BC002'){
+                $add_datas_arr = DB::table('board_add_datas')
+                    ->where('parent_board_idx', $request->b_idx)
+                    ->get();
+                $return_list['add_datas_arr'] = $add_datas_arr;
+            }
+        }else{
+
+            $view_data = DB::table('popup_list')
+            ->where('idx', $request->b_idx)
+            ->first();
+
+        }
 
         $return_list['view_data'] = $view_data;
+        
 
         return view('boffice/show', $return_list);
     }
@@ -607,58 +732,115 @@ class Boffice extends Controller
             ]);
         }
 
-        if($request->bcc == 'BC003' || $request->bcc == 'BC004' || $request->bcc == 'BC005' || $request->bcc == 'BC006' || $request->bcc == 'BC007' || $request->bcc == 'BC008'){
+        if($request->bcc == 'BC002'){
+            $BC002_idx = $request->b_idx;
+            DB::table('board')->where('idx', $BC002_idx)->update([
+                "subject" => $request->subject,
+                "writer2" => $request->writer2,
+                "ect_num1" => $request->ect_num1,
+                "link_value" => $request->link_value,
+                "writer" => $put_writer,
+                "use_status" => $request->use_status
+            ]);
 
-
-            if($_FILES['files']['name'] != "") {
-
-                $file = $_FILES['files'];
-                $upload_directory = './storage/app/images/';
-                $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
-                $allowed_extensions = explode(',', $ext_str);
-
-                $max_file_size = 5242880000000000;
-                $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
-
-                // 확장자 체크
-                if(!in_array($ext, $allowed_extensions)) {
-                    echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
-                    exit;
+            if(!empty($request->idx_data)){
+                $year_data_arr = $request->year_data;
+                $num_data_arr = $request->num_data;
+                $price01_data_arr = $request->price01_data;
+                $price02_data_arr = $request->price02_data;
+                $price03_data_arr = $request->price03_data;
+                // print_r($year_data_arr);
+                // exit;
+                foreach($request->idx_data as $key => $value){
+                    DB::table('board_add_datas')->where('idx', $value)->update([
+                        "parent_board_idx" => $BC002_idx,
+                        "year_data" => $year_data_arr[$key],
+                        "num_data" => $num_data_arr[$key],
+                        "price01_data" => $price01_data_arr[$key],
+                        "price02_data" => $price02_data_arr[$key],
+                        "price03_data" => $price03_data_arr[$key],
+                    ]);
                 }
+            }
 
-                // 파일 크기 체크
-                if($file['size'] >= $max_file_size) {
-                    //echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
-                    //exit;
+            if(!empty($request->year_data_new)){
+                $year_data_arr = $request->year_data_new;
+                $num_data_arr = $request->num_data_new;
+                $price01_data_arr = $request->price01_data_new;
+                $price02_data_arr = $request->price02_data_new;
+                $price03_data_arr = $request->price03_data_new;
+                // print_r($year_data_arr);
+                // exit;
+                foreach($request->year_data_new as $key => $value){
+                    DB::table('board_add_datas')->insert([
+                        "parent_board_idx" => $BC002_idx,
+                        "year_data" => $year_data_arr[$key],
+                        "num_data" => $num_data_arr[$key],
+                        "price01_data" => $price01_data_arr[$key],
+                        "price02_data" => $price02_data_arr[$key],
+                        "price03_data" => $price03_data_arr[$key],
+                    ]);
                 }
+            }
 
-                $path = md5(microtime()) . '.' . $ext;
-                if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
+        }
+
+        if($request->bcc != 'SLIDER' && $request->bcc != 'BC002' && $request->bcc != 'POPUP'){
+
+            if(isset($_FILES['files'])){
+                if($_FILES['files']['name'] != "") {
+
+                    $file = $_FILES['files'];
+                    $upload_directory = './storage/app/images/';
+                    $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
+                    $allowed_extensions = explode(',', $ext_str);
+
+                    $max_file_size = 5242880000000000;
+                    $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
+
+                    // 확장자 체크
+                    if(!in_array($ext, $allowed_extensions)) {
+                        echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+                        exit;
+                    }
+
+                    // 파일 크기 체크
+                    if($file['size'] >= $max_file_size) {
+                        //echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+                        //exit;
+                    }
+
+                    $path = md5(microtime()) . '.' . $ext;
+                    if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
 
 
-                    $file_id = md5(uniqid(rand(), true));
-                    $name_orig = $file['name'];
-                    $name_save = $path;
+                        $file_id = md5(uniqid(rand(), true));
+                        $name_orig = $file['name'];
+                        $name_save = $path;
+
+                    }
+
+                    $del_file = DB::table('board')->where('idx', $request->b_idx)->first();
+
+                    unlink('./storage/app/images/'.$del_file->real_file_name);
+
+                    DB::table('board')->where('idx', $request->b_idx)->update([
+                        "bc_code" => $request->bcc,
+                        "subject" => $request->subject,
+                        "contents" => $request->contents,
+                        "attach_file" => $name_orig,
+                        "real_file_name" => $name_save,
+                        "use_status" => $request->use_status
+                    ]);
 
                 }
-
-                $del_file = DB::table('board')->where('idx', $request->b_idx)->first();
-
-                unlink('./storage/app/images/'.$del_file->real_file_name);
-
-                DB::table('board')->where('idx', $request->b_idx)->update([
-                    "bc_code" => $request->bcc,
-                    "subject" => $request->subject,
-                    "attach_file" => $name_orig,
-                    "real_file_name" => $name_save,
-                    "use_status" => $request->use_status
-                ]);
 
             }else{
 
                 DB::table('board')->where('idx', $request->b_idx)->update([
                     "bc_code" => $request->bcc,
                     "subject" => $request->subject,
+                    "contents" => $request->contents,
                     "use_status" => $request->use_status
                 ]);
 
@@ -730,6 +912,82 @@ class Boffice extends Controller
 
         }
 
+        if($request->bcc == 'POPUP'){
+
+
+            if($_FILES['files']['name'] != "") {
+
+                $file = $_FILES['files'];
+                $upload_directory = './storage/app/images/';
+                $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
+                $allowed_extensions = explode(',', $ext_str);
+
+                $max_file_size = 5242880000000000;
+                $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
+
+                // 확장자 체크
+                if(!in_array($ext, $allowed_extensions)) {
+                    echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+                    exit;
+                }
+
+                // 파일 크기 체크
+                if($file['size'] >= $max_file_size) {
+                    //echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+                    //exit;
+                }
+
+                $path = md5(microtime()) . '.' . $ext;
+                if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
+
+
+                    $file_id = md5(uniqid(rand(), true));
+                    $name_orig = $file['name'];
+                    $name_save = $path;
+
+                }
+
+                $del_file = DB::table('popup_list')->where('idx', $request->b_idx)->first();
+
+                unlink('./storage/app/images/'.$del_file->real_file_name);
+                
+                DB::table('popup_list')->where('idx', $request->b_idx)->update([
+                    "subject" => $request->subject,
+                    "link_value" => $request->link_value,
+                    "link_blank" => $request->link_blank,
+                    "use_status" => $request->use_status,
+                    "date_status" => $request->date_status,
+                    "start_date" => $request->start_date,
+                    "end_date" => $request->end_date,
+                    "attach_file" => $name_orig,
+                    "real_file_name" => $name_save,
+                    "position_status" => $request->position_status,
+                    "position_x" => $request->position_x,
+                    "position_y" => $request->position_y,
+                    "img_width" => $request->img_width,
+                    "img_height" => $request->img_height
+                ]);
+
+            }else{
+                DB::table('popup_list')->where('idx', $request->b_idx)->update([
+                    "subject" => $request->subject,
+                    "link_value" => $request->link_value,
+                    "link_blank" => $request->link_blank,
+                    "use_status" => $request->use_status,
+                    "date_status" => $request->date_status,
+                    "start_date" => $request->start_date,
+                    "end_date" => $request->end_date,
+                    "position_status" => $request->position_status,
+                    "position_x" => $request->position_x,
+                    "position_y" => $request->position_y,
+                    "img_width" => $request->img_width,
+                    "img_height" => $request->img_height
+                ]);
+
+            }
+
+        }
+
         echo '<script>alert("게시글 수정이 완료됐습니다."); location.href="/boffice/view?bcc='.$request->bcc.'&b_idx='.$request->b_idx.'";</script>';
 
         $return_list = array();
@@ -750,6 +1008,50 @@ class Boffice extends Controller
 
         echo '<script>alert("게시글 삭제가 완료됐습니다."); location.href="/boffice/list?bcc='.$request->bcc.'";</script>';
 
+    }
+
+    public function deleteMem(Request $request)
+    {
+        $del_idx = explode(',', $request->b_idx);
+        //$del_idx = $request->b_idx;
+        //print_r($del_idx);
+
+        foreach($del_idx as $key => $value){
+            DB::table('acc_member')
+                ->where('idx', $value)
+                ->delete();
+        }
+
+        echo '<script>alert("회원 삭제가 완료됐습니다."); location.href="/boffice/FMlist?mem_cate='.$request->mem_cate.'";</script>';
+
+    }
+
+    public function deletePop(Request $request)
+    {
+        $del_idx = explode(',', $request->b_idx);
+        //$del_idx = $request->b_idx;
+        //print_r($del_idx);
+
+        foreach($del_idx as $key => $value){
+
+            $del_file = DB::table('popup_list')->where('idx', $value)->first();
+
+            unlink('./storage/app/images/'.$del_file->real_file_name);
+            DB::table('popup_list')
+                ->where('idx', $value)
+                ->delete();
+        }
+
+        echo '<script>alert("팝업 삭제가 완료됐습니다."); location.href="/boffice/list?bcc='.$request->bcc.'";</script>';
+
+    }
+
+    public function deleteData(Request $request)
+    {
+        DB::table('board_add_datas')
+                ->where('idx', $request->del_idx)
+                ->delete();
+        echo '<script>location.href="/boffice/view?bcc=BC002&b_idx='.$request->b_idx.'"</script>';
     }
 
     public function priListUpdate(Request $request)
@@ -844,5 +1146,236 @@ class Boffice extends Controller
         session()->forget('adm_user_idx');
 
         echo "<script>alert('로그아웃 완료됐습니다.');location.href='/boffice/login';</script>";
+    }
+
+    public function FMwrite(Request $request)
+    {
+        return view('boffice/FMwrite');
+    }
+
+    public function FMlist(Request $request)
+    {
+        $return_list = array();
+
+        $paging_option = array(
+			"pageSize" => 20,
+			"blockSize" => 5
+        );
+
+        $thisPage = ($request->page) ? $request->page : 1 ;
+		$paging = new PagingFunction($paging_option);
+
+        $totalQuery = DB::table('acc_member');
+        $totalQuery->where('m_level', $request->mem_cate);
+        $totalCount = $totalQuery->get()->count();
+        $paging_view = $paging->paging($totalCount, $thisPage, "page");
+
+        $query = DB::table('acc_member')
+                        ->where('m_level', $request->mem_cate);
+
+        if($request->page != "" && $request->page > 1) {
+            $query->skip(($request->page - 1) * $paging_option["pageSize"]);
+        }
+
+        
+            $view_list = $query->orderBy('idx', 'desc')->take($paging_option["pageSize"])->get();
+        
+
+
+
+        // 게시판 출력 글 번호 계산
+		$number = $totalCount-($paging_option["pageSize"]*($thisPage-1));
+
+        $return_list['view_list'] = $view_list;
+        $return_list["number"] = $number;
+        $return_list["totalCount"] = $totalCount;
+        $return_list["paging_view"] = $paging_view;
+        $return_list["page"] = $thisPage;
+
+        return view('boffice/FMlist', $return_list);
+    }
+
+    public function FMshow(Request $request)
+    {
+        $return_list = array();
+
+        $view_data = DB::table('acc_member')
+                        ->where('idx', $request->b_idx)
+                        ->first();
+
+        $return_list['view_data'] = $view_data;
+        
+
+        return view('boffice/FMshow', $return_list);
+    }
+
+    public function FMcreate(Request $request){
+
+        $psData = Hash::make($request->m_passwd);
+
+        if($request->mem_cate == '9'){
+
+            $name_orig = '';
+            $name_save = '';
+
+            if($_FILES['files']['name'] != "") {
+
+                $file = $_FILES['files'];
+                $upload_directory = './storage/app/images/';
+                $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,Png,jpeg,JPEG";
+                $allowed_extensions = explode(',', $ext_str);
+
+                $max_file_size = 5242880000000000;
+                $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
+
+                // 확장자 체크
+                if(!in_array($ext, $allowed_extensions)) {
+                    echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+                    exit;
+                }
+
+                $path = md5(microtime()) . '.' . $ext;
+
+                if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
+                    $file_id = md5(uniqid(rand(), true));
+                    $name_orig = $file['name'];
+                    $name_save = $path;
+                }
+
+            }
+
+            $min_prino = DB::table('board')->min('prino');
+
+            DB::table('acc_member')->insert([
+                "m_id" => $request->m_id,
+                "m_passwd" => $psData,
+                "m_company_name" => $request->m_company_name,
+                "m_company_number" => $request->m_company_number,
+                "m_name" => $request->m_name,
+                "m_position" => $request->m_position,
+                "m_contact_number" => $request->m_contact_number,
+                "m_email" => $request->m_email,
+                "m_addr1" => $request->m_addr1,
+                "m_addr2" => $request->m_addr2,
+                "m_company_addr1" => $request->m_company_addr1,
+                "m_company_addr2" => $request->m_company_addr2,
+                "m_level" => $request->m_level,
+                "attach_file" => $name_orig,
+                "real_file_name" => $name_save,
+                "approval_status" => $request->approval_status
+            ]);
+
+        }else{
+
+            DB::table('acc_member')->insert([
+                "m_id" => $request->m_id,
+                "m_passwd" => $psData,
+                "m_company_name" => $request->m_company_name,
+                "m_company_number" => $request->m_company_number,
+                "m_name" => $request->m_name,
+                "m_position" => $request->m_position,
+                "m_contact_number" => $request->m_contact_number,
+                "m_email" => $request->m_email,
+                "m_addr1" => $request->m_addr1,
+                "m_addr2" => $request->m_addr2,
+                "m_company_addr1" => $request->m_company_addr1,
+                "m_company_addr2" => $request->m_company_addr2,
+                "m_level" => $request->m_level,
+                "m_professional" => $request->m_professional,
+                "approval_status" => $request->approval_status
+            ]);
+
+        }
+
+        echo "<script>alert('회원계정 생성이 완료됐습니다.');location.href='/boffice/FMlist?mem_cate=".$request->mem_cate."';</script>";
+
+    }
+
+    public function FMupdate(Request $request){
+
+        $psData = Hash::make($request->m_passwd);
+
+        if($_FILES['files']['name'] != "") {
+
+            $file = $_FILES['files'];
+            $upload_directory = './storage/app/images/';
+            $ext_str = "jpg,gif,png,Jpg,JPG,GIF,PNG,PDF,PPT,PPTX,HWP,Png,jpeg,JPEG";
+            $allowed_extensions = explode(',', $ext_str);
+
+            $max_file_size = 5242880000000000;
+            $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
+
+            // 확장자 체크
+            if(!in_array($ext, $allowed_extensions)) {
+                echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+                exit;
+            }
+
+            // 파일 크기 체크
+            if($file['size'] >= $max_file_size) {
+                //echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+                //exit;
+            }
+
+            $path = md5(microtime()) . '.' . $ext;
+            if(move_uploaded_file($file['tmp_name'], $upload_directory.$path)) {
+
+
+                $file_id = md5(uniqid(rand(), true));
+                $name_orig = $file['name'];
+                $name_save = $path;
+
+            }
+
+            $del_file = DB::table('acc_member')->where('idx', $request->b_idx)->first();
+
+            unlink('./storage/app/images/'.$del_file->real_file_name);
+
+            $mJoinData = DB::table('acc_member')->where('idx', $request->b_idx)
+            ->update([
+                "m_id" => $request->m_id,
+                "m_passwd" => $psData,
+                "m_company_name" => $request->m_company_name,
+                "m_company_number" => $request->m_company_number,
+                "m_name" => $request->m_name,
+                "m_position" => $request->m_position,
+                "m_contact_number" => $request->m_contact_number,
+                "m_email" => $request->m_email,
+                "m_addr1" => $request->m_addr1,
+                "m_addr2" => $request->m_addr2,
+                "m_company_addr1" => $request->m_company_addr1,
+                "m_company_addr2" => $request->m_company_addr2,
+                "m_level" => $request->m_level,
+                "attach_file" => $name_orig,
+                "real_file_name" => $name_save,
+                "m_professional" => $request->m_professional,
+                "approval_status" => $request->approval_status
+            ]);
+
+        }else{
+
+            $mJoinData = DB::table('acc_member')->where('idx', $request->b_idx)
+            ->update([
+                "m_id" => $request->m_id,
+                "m_passwd" => $psData,
+                "m_company_name" => $request->m_company_name,
+                "m_company_number" => $request->m_company_number,
+                "m_name" => $request->m_name,
+                "m_position" => $request->m_position,
+                "m_contact_number" => $request->m_contact_number,
+                "m_email" => $request->m_email,
+                "m_addr1" => $request->m_addr1,
+                "m_addr2" => $request->m_addr2,
+                "m_company_addr1" => $request->m_company_addr1,
+                "m_company_addr2" => $request->m_company_addr2,
+                "m_level" => $request->m_level,
+                "m_professional" => $request->m_professional,
+                "approval_status" => $request->approval_status
+            ]);
+
+        }
+
+        echo "<script>alert('회원정보 수정이 완료됐습니다.');location.href='/boffice/FMview?b_idx=".$request->b_idx."&mem_cate=".$request->m_level."';</script>";
+
     }
 }

@@ -1,35 +1,52 @@
 @include('inc/head')
 @include('inc/sub_header')
 @include('inc/erp_header')
-    @if(request()->segment(3) == 'report01')
+    {{-- @if(request()->segment(3) == 'report01') --}}
         <div class="sub_content edu_board">
                 <div class="edu_board_view">                    
                     <ul>
                         <li>
-                            <h3>안녕하세요 총회보고 - 사업보고 게시판입니다.</h3>
+                            @if(request()->bcc == 'BC023')
+                            <h3 class="title">{{$view_data->category}}에 대한 자문신청입니다.</h3>
+                            @else
+                            <h3 class="title">{{$view_data->subject}}</h3>
+                            @endif
                             
                         </li>
                         <li>
-                            <span><strong>신청자:</strong>홍길동</span>
-                            <span><strong>등록일:</strong>2020.12.25</span>
+                            <span><strong>신청자:</strong>{{$view_data->writer}}</span>
+                            <span><strong>등록일:</strong>{{substr($view_data->reg_date, 0, 10)}}</span>
                         </li>
+                        
                         <li>
-                            안녕하세요 총회보고 - 사업보고 게시판입니다.  안녕하세요 총회보고 - 사업보고 게시판입니다.  안녕하세요 총회보고 - 사업보고 게시판입니다.
-                            안녕하세요 총회보고 - 사업보고 게시판입니다.  안녕하세요 총회보고 - 사업보고 게시판입니다.  안녕하세요 총회보고 - 사업보고 게시판입니다.
-                            안녕하세요 총회보고 - 사업보고 게시판입니다.  안녕하세요 총회보고 - 사업보고 게시판입니다.  안녕하세요 총회보고 - 사업보고 게시판입니다.
-                            <div class="report_img"><p>이미지</p></div>
+                            @if(request()->bcc == 'BC023')
+                            <p>소속: {{$view_data->etc1}}</p>
+                            <p>전화번호: {{$view_data->contact_number}}</p>
+                            <p>팩스: {{$view_data->contact_number2}}</p>
+                            <p>이메일: {{$view_data->email}}</p>
+                            <p>자문요청분야: {{$view_data->category}}</p>
+                            <p>질문내용:<br/>{!!$view_data->contents!!}</p>
+                            @else
+                            {!!$view_data->contents!!}
+                            @endif
+                            
+                            {{-- <div class="report_img"><p>이미지</p></div> --}}
                         </li>
+                        
                         <li>
-                            <img src="/img/download.png" alt="download">공동구매 주문신청서_홍길동.docx
+                            
+                            <a href="/download?idx={{$view_data->idx}}&filename={{$view_data->attach_file}}&real_file_name=/storage/app/images/{{$view_data->real_file_name}}">
+                                <img src="/img/download.png" alt="download">{{$view_data->attach_file}}
+                            </a>
                         </li>
                     </ul>
                     <div class="prev_list flex_box_cen">
-                        <a href="/info/report/report01/list" class="btn">목록</a>
+                        <a href="javascript:history.go(-1)" class="btn">목록</a>
                     </div>                        
                 </div>    
             </div>
         </div>
-    @elseif(request()->segment(3) == 'report02')
+    {{-- @elseif(request()->segment(3) == 'report02')
         <div class="sub_content edu_board">
             <div class="edu_board_view">                    
                 <ul>
@@ -689,7 +706,7 @@
                 </div>                        
             </div>    
         </div>
-    @endif
+    @endif --}}
     </div>
 </div>
 @include('inc/footer')

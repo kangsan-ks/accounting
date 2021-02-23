@@ -48,26 +48,30 @@ $(function(){
 		e.preventDefault();
 	});
 	
-	$('.advice_list_01').click(function(e){
-		e.preventDefault();
-		$('.advice01_popup').addClass('active');
-		});
-		$('.advice_list_01 form .close').click(function(){
-			$('.advice01_popup').removeClass('on');
-		});
-		$('.advice_list_02').click(function(e){
-			e.preventDefault();
-			$('.advice02_popup').addClass('active');
-		});
-		$('.advice_list_02 form .close').click(function(){
-			$('.advice02_popup').removeClass('on');
-		});
-		$('.account_table .account_fee > a').click(function(e){
+	// $('.advice_list_01').click(function(e){
+	// 	e.preventDefault();
+	// 	$('.advice01_popup').addClass('active');
+	// 	});
+	// 	$('.advice_list_01 form .close').click(function(){
+	// 		$('.advice01_popup').removeClass('on');
+	// 	});
+	// 	$('.advice_list_02').click(function(e){
+	// 		e.preventDefault();
+	// 		$('.advice02_popup').addClass('active');
+	// 	});
+	// 	$('.advice_list_02 form .close').click(function(){
+	// 		$('.advice02_popup').removeClass('on');
+	// 	});
+		$('.account_table .account_fee a').click(function(e){
+			//console.log();
 			e.preventDefault();
 			$('.account_fee_popup').addClass('active');
+			$('.account_fee_popup').children('.pop_inner').eq($(this).attr('data-poIdx')).show();
 		});
-		$('.pop_inner .close').click(function(){
-			$('.account_fee_popup').removeClass('on');
+		$('.pop_inner .close').click(function(e){
+			e.preventDefault();
+			$('.account_fee_popup').removeClass('active');
+			$('.account_fee_popup').children('.pop_inner').hide();
 		});
 		// $('.sub_menu_list > li').click(function(){
 		//     $('.sub_menu_list .sub_sub_menu li').css({display:'block'});

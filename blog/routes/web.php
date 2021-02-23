@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //ㄴㄴㄴㄴㄴ
+
+//파일다운로드
+Route::get('/download', 'Front@downloadFile');
+
 Route::get('/', 'Front@main');
 
 Route::get('/info/greeting', 'Front@info');
@@ -92,6 +96,9 @@ Route::get('/edu/web/write', 'Front@write');
 Route::get('/edu/edus/write', 'Front@write');
 
 /*게시판 - view */
+
+
+Route::get('/board_view', 'Front@view');
 
 Route::get('/info/report/report01/view', 'Front@view');
 Route::get('/info/report/report02/view', 'Front@view');
@@ -175,11 +182,11 @@ Route::get('/join/join', 'Front@join');
 Route::get('/join/business_join', 'Front@join');
 Route::get('/join/human_join', 'Front@join');
 
-Route::get('/s_result', 'Front@s_result');
+
 
 Route::get('/board_list', 'Front@board_list');
 Route::get('/board_write', 'Front@board_write');
-Route::get('/board_view', 'Front@board_view');
+//Route::get('/board_view', 'Front@board_view');
 
 // 모바일
 

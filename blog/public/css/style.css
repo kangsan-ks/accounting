@@ -3,6 +3,7 @@ body{
     letter-spacing: -0.04em;
     font-size: 16px;
     color:#333;
+    min-width: 1340px;
 }
 .inner{
     width:1280px;
@@ -10,6 +11,9 @@ body{
 }
 label{
     display: none;
+}
+button{
+    cursor: pointer;
 }
 input{
     border: none;
@@ -867,7 +871,7 @@ table caption{
 }
 
 /*sub - s_result_box*/
-.s_result_box h3{ 
+.s_result_box > h3{ 
     text-align: center;
     font-size: 20px;
     letter-spacing: -0.02em;
@@ -900,9 +904,13 @@ table caption{
     padding-left: 15px;
     
 } 
-.s_result_box .result_box ul li:first-child{
+.s_result_box .result_box ul li{
     border-bottom: 2px solid #fff;
     padding-bottom: 20px;
+}
+.s_result_box .result_box ul li:last-child{
+    padding-bottom: 0;
+    border-bottom: 0;
 }
 .s_result_box .result_box ul li h5{
     font-size: 15px;
@@ -921,9 +929,17 @@ table caption{
     width: 775px;
     font-size: 12px;
     line-height: 22px;
+    max-height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     color:#aaa;
     font-weight: 300;
     letter-spacing: 0.02em;
+}
+.s_result_box .result_box ul li p span{
+    font-weight: 700;
+    color:#537db9;
 }
 .pagination {
     text-align: center;
@@ -1046,7 +1062,7 @@ table caption{
 .edu_board_view li span{
     margin-right: 22px;
 }
-.edu_board_view li h3{
+.edu_board_view li h3.title{
     background:#eee;
     line-height: 72px;
     padding-left: 35px;
@@ -1107,7 +1123,7 @@ table caption{
 
 .b_insurance li.on{
     background: #3d6cb4;
-    height: 230px;
+    height: auto;
 }
 .b_insurance li.on h5{
     color:#fff;
@@ -1163,11 +1179,22 @@ table caption{
 /* support- q_support- sp02*/
 .sp02 .edu_board_list > ul{
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .sp02 .edu_board_list .sp02_list{
     width: 308px;
     border: 0.75px solid #ccc;
     margin-bottom: 25px;
+    margin-right: 18px;
+    overflow: hidden;
+}
+.sp02 .edu_board_list .sp02_list.on{
+    -webkit-box-shadow: 0px 7px 17px -9px rgba(0,2,67,1);
+    -moz-box-shadow: 0px 7px 17px -9px rgba(0,2,67,1);
+    box-shadow: 0px 7px 17px -9px rgba(0,2,67,1);
+}
+.sp02 .edu_board_list .sp02_list:nth-of-type(3n){
+    margin-right: 0;
 }
 .sp02 .edu_board_list .sp02_list:nth-child(n+7):nth-child(-n+9){
     margin-bottom: 0;
@@ -1292,6 +1319,9 @@ table caption{
     letter-spacing: -0.02em;
     color:#666;
 }
+.advice .popup form input[type=file]{
+    line-height: 51px;
+}
 .advice .popup form .popup_text textarea{
     line-height: 24px;
     border: 0;
@@ -1303,16 +1333,18 @@ table caption{
     margin: 0 auto;
     margin-top: 32px;
 }
-.advice .popup form .check_or_cancel a{
+.advice .popup form .check_or_cancel a,
+.advice .popup form .check_or_cancel button{
     line-height: 40px;
     border:1px solid #ddd; 
+    background-color: #fff;
     border-radius: 4px;
     padding: 0 29px;
     font-size: 14px;
     letter-spacing: -0.02em;
     color:#999;
 }
-.advice .popup form .check_or_cancel a.on{
+.advice .popup form .check_or_cancel button{
     color:#4270b3;
     border:1px solid #4270b3; 
 }
@@ -1347,7 +1379,7 @@ table caption{
 }
 .account_table {
     text-align: center;
-    line-height: 49px;
+    /* line-height: 49px; */
     letter-spacing: -0.02em;
     color: #666;
     font-weight: 400;
@@ -1359,6 +1391,7 @@ table caption{
     background: #4270b3;
     color:#fff;
     font-weight: 400;
+    padding: 15px 0;
 }
 .account_table thead th.number{
     background: #3762a0;
@@ -1367,6 +1400,9 @@ table caption{
     background: #eee;
     color: #999;
     font-weight: 400;
+}
+.account_table tbody tr td{
+    padding: 10px 0;
 }
 .account_table tbody tr td svg{
     color: #999;

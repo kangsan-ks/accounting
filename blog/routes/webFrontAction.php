@@ -25,11 +25,14 @@ Route::get('/FAction/list', 'FAction@list');
 Route::get('/FAction/adm_set', 'FAction@admList');
 Route::get('/FAction/view', 'FAction@show');
 Route::get('/FAction/admView', 'FAction@admShow');
-Route::get('/FAction/write', 'FAction@write');
+Route::get('/FAction/write', 'FAction@create');
+Route::post('/FAction/write', 'FAction@create');
 
 
-Route::post('/FAction/create', 'FAction@create');
+Route::post('/FAction/advice', 'FAction@advice');
 Route::post('/FAction/update', 'FAction@update');
 Route::post('/FAction/admUpdate', 'FAction@admUpdate');
 Route::get('/FAction/priList', 'FAction@priListUpdate');
 Route::get('/FAction/delete', 'FAction@delete');
+
+Route::get('/s_result', 'FAction@s_result');

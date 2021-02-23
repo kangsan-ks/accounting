@@ -10,8 +10,16 @@
   $(document).ready(function () {
 
     // Blog overview date range init.
-    $('#blog-overview-date-range').datepicker({});
-    $('#blog-overview-date-range2').datepicker({});
+    $('#blog-overview-date-range').datepicker({
+      format: "yyyy/mm/dd",
+      language: "kr",
+      todayHighlight: true
+    });
+    $('#blog-overview-date-range2').datepicker({
+      format: "yyyy/mm/dd",
+      language: "kr",
+      todayHighlight: true
+    });
 
     //
     // Small Stats

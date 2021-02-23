@@ -30,3 +30,12 @@ Route::post('/boffice/update', 'Boffice@update');
 Route::post('/boffice/admUpdate', 'Boffice@admUpdate');
 Route::get('/boffice/priList', 'Boffice@priListUpdate');
 Route::get('/boffice/delete', 'Boffice@delete');
+Route::get('/boffice/deleteMem', 'Boffice@deleteMem');
+Route::get('/boffice/deletePop', 'Boffice@deletePop');
+Route::get('/boffice/deleteData', 'Boffice@deleteData');
+
+Route::get('/boffice/FMlist', 'Boffice@FMlist');
+Route::get('/boffice/FMview', 'Boffice@FMshow');
+Route::get('/boffice/FMwrite', 'Boffice@FMwrite');
+Route::post('/boffice/FMcreate', 'Boffice@FMcreate');
+Route::post('/boffice/FMupdate', 'Boffice@FMupdate');

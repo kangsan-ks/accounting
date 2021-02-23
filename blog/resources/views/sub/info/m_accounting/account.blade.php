@@ -4,7 +4,7 @@
             <div class="sub_content account">
                 <img src="/img/dot.png" alt="dot_img">
                 <h4>회계법인현황</h4>
-                <p>회계법인 회원가입현황 2021년 00월 현재</p>
+                <p>회계법인 회원가입현황 <?=date('Y')?>년 <?=date('m')?>월 현재</p>
                 <table class="account_table">
                     <caption>회계법인현황</caption>
                     <colgroup>
@@ -26,65 +26,41 @@
                         <th scope="account_table_col5">홈페이지url</th> 
                     </thead>
                     <tbody>
+                        @foreach ($list as $key => $value)
                         <tr>
-                            <th>4</th>
-                            <td>D회계법인</td>
-                            <td>홍길동</td>
-                            <td>5명</td>
-                            <td>유/무</td>
+                            <th>{{$listCnt--}}</th>
+                            <td>{{$value->subject}}</td>
+                            <td>{{$value->writer2}}</td>
+                            <td>{{$value->ect_num1}}명</td>
                             <td>
-                                <a href="" class="account_btn">납부</a>
+                                @if ($value->use_status == 'Y')
+                                    유
+                                @else
+                                    무
+                                @endif
                             </td>
-                            <td>
-                                <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>C회계법인</td>
-                            <td>홍길동</td>
-                            <td>5명</td>
-                            <td>유/무</td>
-                            <td>
-                                <a href="" class="account_btn">납부</a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>B회계법인</td>
-                            <td>홍길동</td>
-                            <td>5명</td>
-                            <td>유/무</td>
-                            <td>
-                                <a href="" class="account_btn">납부</a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <td>A회계법인</td>
-                            <td>홍길동</td>
-                            <td>5명</td>
-                            <td>유/무</td>
                             <td>
                                 <div class="account_fee">
-                                    <a href="" class="account_btn on">납부</a>
-                                </div>                                
+                                    <a href="javascript:void(0);" class="account_btn @if ($value->sumData == 0) on @endif" data-poIdx="{{$key}}">
+                                        @if ($value->sumData == 0)
+                                            납부
+                                        @else
+                                            미납부
+                                        @endif
+                                    </a>
+                                </div>
                             </td>
                             <td>
-                                <a href=""><i class="fas fa-home"></i>abc.co.kr</a>
+                                <a href="{{$value->link_value}}" target="_blank"><i class="fas fa-home"></i>{{$value->link_value}}</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>   
                 <div class="popup account_fee_popup flex_box_cen">
-                    <div class="pop_inner">
-                        <h5>A회계법인 회비 납부현황 <span>0000년 00월 현재</span></h5>
+                    @foreach ($list2 as $key => $value)
+                    <div class="pop_inner" style="display:none;">
+                        <h5>{{$value->subject}} 회비 납부현황 <span><?=date('Y')?>년 <?=date('m')?>월 현재</span></h5>
                         <table class="account_popup_table">
                             <caption>회계법인 회비 납부현황</caption>
                             <colgroup>
@@ -98,46 +74,38 @@
                                 <th>미납(선납)금액</th> 
                             </thead>
                             <tbody>
+                                @php
+                                    $pri01Sum = 0;
+                                    $pri02Sum = 0;
+                                    $pri03Sum = 0;
+                                @endphp
+                                @foreach ($list[$key]->listData as $key2 => $value2)
+                                @php
+                                    $pri01Sum = $pri01Sum + $value2->price01_data;
+                                    $pri02Sum = $pri02Sum + $value2->price02_data;
+                                    $pri03Sum = $pri03Sum + $value2->price03_data;
+                                @endphp
                                 <tr>
-                                    <td>2020</td>
-                                    <td>5명</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
+                                    <td>{{$value2->year_data}}</td>
+                                    <td>{{number_format($value2->num_data)}}</td>
+                                    <td>{{number_format($value2->price01_data)}}</td>
+                                    <td>{{number_format($value2->price02_data)}}</td>
+                                    <td>{{number_format($value2->price03_data)}}</td>
                                 </tr>
-                                <tr>
-                                    <td>2020</td>
-                                    <td>5명</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                </tr>
-                                <tr>
-                                    <td>2020</td>
-                                    <td>5명</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                </tr>
-                                <tr>
-                                    <td>2020</td>
-                                    <td>5명</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                </tr>                            
+                                @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="2" class="total">합계</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
-                                    <td>00,000</td>
+                                    <td>{{number_format($pri01Sum)}}</td>
+                                    <td>{{number_format($pri02Sum)}}</td>
+                                    <td>{{number_format($pri03Sum)}}</td>
                                 </tr>             
                             </tfoot>
                         </table>  
                         <a href="" class="close">close</a>  
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

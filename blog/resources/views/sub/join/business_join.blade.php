@@ -6,7 +6,7 @@
     <div class="join business inner">
         <h1 class="logo"><a href="/"><img src="/img/logo.png" alt=""></a></h1>
         <h4 class="b_back">일반기업 회원 전용 회원가입</h4>       
-        <form action="/FAction/join" method="post">
+        <form action="/FAction/join" method="post" name="joinF" onsubmit="return frm_chk();">
             @csrf
             <input type="hidden" name="join_type" value="normal" />
             <input type="hidden" name="m_level" value="0" />
@@ -14,13 +14,15 @@
                 <li>
                     <label for="b_name">아이디</label>
                     <div class="inp_box">
-                        <input type="text" name="m_id" class="b_name" required>
+                        <input type="text" name="m_id" class="b_name" onkeyup="id_chk(this)" required>
+                        <span id="id_c_txt"></span>
                     </div>                
                 </li>
                 <li>
                     <label for="b_name">비밀번호</label>
                     <div class="inp_box">
-                        <input type="text" name="m_passwd" class="b_name" required>
+                        <input type="password" name="m_passwd" class="b_name" onkeyup="pw_chk(this)" required>
+                        <span id="pw_c_txt"></span>
                     </div>                
                 </li>
                 <li>
@@ -74,8 +76,8 @@
                 <li class="line_2">
                     <label for="address">주소</label>
                     <div class="inp_box">
-                        <input type="text" name="" class="address" id="sample6_address2" onclick="sample6_execDaumPostcode2();" required>
-                        <input type="text" name="" class="address" id="sample6_detailAddress2" placeholder="(상세주소)" required>
+                        <input type="text" name="m_addr1" class="address" id="sample6_address2" onclick="sample6_execDaumPostcode2();" required>
+                        <input type="text" name="m_addr2" class="address" id="sample6_detailAddress2" placeholder="(상세주소)" required>
                     </div>
                 </li>      
             </ul>
@@ -97,6 +99,67 @@
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+
+    var id_flag = false;
+    var pw_flag = false;
+
+    function id_chk(idChk){
+        var idRegExp = /^[a-z]+[a-z0-9]{5,14}$/g; //아이디 유효성 검사
+        if (!idRegExp.test( $('input[name=m_id]').val() )) {
+            $('#id_c_txt').text('아이디는 영문자로 시작하는 6~15자 영문자 또는 숫자이어야 합니다.').css({color: '#ff0000'});
+            id_flag = false;
+        }else{
+
+            $.ajax({
+                url: "/FAction/mIdCheck",
+                type: "post",
+                data: $('form[name=joinF]').serialize(),
+                success: function(result) {
+                    if(result == 0){
+                        $('#id_c_txt').text('사용가능한 ID입니다.').css({color: '#4270b3'});
+                        id_flag = true;
+                    }else{
+                        $('#id_c_txt').text('이미 사용중인 아이디입니다.').css({color: '#ff0000'});
+                        id_flag = false;
+                    }
+                },
+                error:function(request, status, error){
+                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+
+        }
+        
+    }
+
+    function pw_chk(pwChk){
+        
+        var idRegExp = /^[a-zA-Z0-9]{6,15}$/g; //패스워드 유효성 검사
+        
+        if (!idRegExp.test( $('input[name=m_passwd]').val() )) {
+            pw_flag = false;
+            $('#pw_c_txt').text('비밀번호는 6~20자 영문자 또는 숫자이어야 합니다.').css({color: '#ff0000'});
+
+        }else{
+            $('#pw_c_txt').text('');
+            pw_flag = true;
+        }
+    }
+
+    function frm_chk(){
+        var joinF = document.joinF;
+
+        if(id_flag === false){
+            alert('아이디를 확인해주세요.');
+            $('input[name=m_id]').focus();
+            return false;
+        }
+        if(pw_flag === false){
+            alert('비밀번호를 확인해주세요.');
+            $('input[name=m_passwd]').focus();
+            return false;
+        }
+    }
 
     function sample6_execDaumPostcode() {
         new daum.Postcode({

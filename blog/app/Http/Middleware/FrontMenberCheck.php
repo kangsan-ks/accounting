@@ -21,6 +21,7 @@ class FrontMenberCheck
         if(isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != ''){
             session(['user_id' => $_COOKIE['user_id']]);
             session(['user_level' => $_COOKIE['user_level']]);
+            session(['user_name' => $_COOKIE['user_name']]);
         }
 
         $user_id = session('user_id');
@@ -28,6 +29,8 @@ class FrontMenberCheck
         if($user_id != ''){
             $user_data = DB::table('acc_member')->where('m_id', $user_id)->first();
             session(['user_level' => $user_data->m_level]);
+            session(['user_name' => $user_data->m_name]);
+            $user_name = session('user_name');
             $user_level = session('user_level');
         }
         // echo $user_id;

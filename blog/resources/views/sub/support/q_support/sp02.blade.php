@@ -6,7 +6,32 @@
                
                 <div class="edu_board_list">
                     <ul class="flex_box_bet">
+                        @foreach ($view_list as $key => $value)
                         <li class="sp02_list">
+                            <div class="photo flex_box_cen flex_box_bottom">
+                                <img src="/storage/app/images/{{$value->}}" alt="">
+                            </div>
+                            <ul>
+                                <li class="flex_box_left">
+                                    <h6>자문위원</h6>
+                                    <span>*****</span>
+                                </li>
+                                <li class="flex_box_left">
+                                    <h6>소속</h6>
+                                    <span>*****</span>
+                                </li>
+                                <li class="flex_box_left">
+                                    <h6>직책</h6>
+                                    <span>*****</span>
+                                </li>
+                                <li class="flex_box_left">
+                                    <h6>전문분야</h6>
+                                    <span>*****</span>
+                                </li>
+                            </ul>
+                        </li>
+                        @endforeach
+                        {{-- <li class="sp02_list">
                             <div class="photo flex_box_cen flex_box_bottom">
                                 <img src="/img/human_list.png" alt="">
                             </div>
@@ -28,192 +53,7 @@
                                     <span>*****</span>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sp02_list">
-                            <div class="photo flex_box_cen flex_box_bottom">
-                                <img src="/img/human_list.png" alt="">
-                            </div>
-                            <ul>
-                                <li class="flex_box_left">
-                                    <h6>자문위원</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>소속</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>직책</h6>
-                                    <span>*****</span>
-                                </li>
-                                <li class="flex_box_left">
-                                    <h6>전문분야</h6>
-                                    <span>*****</span>
-                                </li>
-                            </ul>
-                        </li>
-                        
+                        </li> --}}
                     </ul>
                     <div class="pagination flex_box_right ">
                         <div class="flex_box_bet flex_box_cen">
